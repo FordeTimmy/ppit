@@ -1,11 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+// App.jsx
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './componets/login'; // Import the Login component
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello</h1>
-    </div>
+    <Router>
+      <Routes>
+        {/* Route for the login page */}
+        <Route path="/" element={<Login />} /> {/* Set the Login component to render for the root path */}
+      </Routes>
+    </Router>
   );
 }
 //test
