@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // login.jsx
 
 import React, { useState } from 'react';
@@ -5,34 +6,55 @@ import { useNavigate } from 'react-router-dom';
 import './login.css'; // Import CSS file for styling
 import BikeLogo from '../images/BikeLogo.png';
 
+=======
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../firebase';
+>>>>>>> ba20cebd9e5c807931b76a14f2325f7098213014
 
-function Login() { // Rename login to Login
+function Login() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [registeredUsers, setRegisteredUsers] = useState([]);
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    const user = registeredUsers.find(user => user.username === username && user.password === password);
-    if (user) {
-      navigate('/'); // Redirect to home after successful login
-    } else {
-      setErrorMessage('Invalid username or password.');
-    }
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Login successful
+        console.log("Login successful", userCredential);
+        navigate('/'); // Redirect to home after successful login
+      })
+      .catch((error) => {
+        // Handle login error
+        setErrorMessage('Invalid email or password.');
+      });
   };
 
   const handleRegistration = () => {
-    const userExists = registeredUsers.some(user => user.username === username);
-    if (userExists) {
-      setErrorMessage('Username already exists. Please choose a different one.');
-    } else {
-      setRegisteredUsers([...registeredUsers, { username, email, password }]);
-      setIsRegistering(false);
-      setErrorMessage('Registration successful. You can now log in.');
+    if (!email || !password) {
+      setErrorMessage('Email and password are required.');
+      return;
     }
+    if (password.length < 6) {
+      setErrorMessage('Password should be at least 6 characters.');
+      return;
+    }
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Registration successful
+        console.log("Registration successful", userCredential);
+        setIsRegistering(false);
+        setErrorMessage('Registration successful. You can now log in.');
+      })
+      .catch((error) => {
+        // Handle registration error
+        setErrorMessage(error.message);
+      });
   };
 
   return (
@@ -80,4 +102,4 @@ function Login() { // Rename login to Login
   );
 }
 
-export default Login; // Export Login component
+export default Login;
