@@ -1,0 +1,125 @@
+/* Login.css */
+.container {
+    position: relative;
+  }
+  
+  .container::before,
+  .container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10px; /* Adjust width of the strips */
+    background-color: #007bff; /* Set color for the strips */
+  }
+  
+  .container::before {
+    left: 0;
+  }
+  
+  .container::after {
+    right: 0;
+  }
+  
+ /* Login.css */
+
+/* Login.css */
+
+/* Rest of the existing styles remain unchanged */
+/* Login.css */
+
+/* Rest of the existing styles remain unchanged */
+/* Login.css */
+
+/* Rest of the existing styles remain unchanged */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #3498db; /* Set a nice shade of blue for the background */
+    color: #000; /* Set font color to black */
+}
+
+.container {
+    position: relative;
+}
+
+.logo-container {
+    position: absolute;
+    top: 10px; /* Adjust top position */
+    left: 10px; /* Adjust left position */
+}
+
+.logo {
+    width: 50px; /* Adjust logo width */
+    height: auto;
+}
+
+.login-container {
+    position: relative;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff; /* Set background color for the login container */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+.login-content {
+    position: relative;
+    z-index: 1; /* Ensure the content is above the strips */
+}
+
+.login-heading {
+    text-align: center;
+    color: #333; /* Set color for the login heading */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%; /* Adjust width to accommodate sidebars */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add transition for smooth hover effect */
+}
+
+.btn-primary {
+    background-color: #3498db; /* Set background color for primary button */
+    color: #fff; /* Set text color for primary button */
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff; /* Set text color for secondary button */
+}
+
+.btn:hover {
+    background-color: #217dbb; /* Change background color on hover */
+}
+
+.error-message {
+    color: #dc3545;
+    margin-top: 10px;
+}

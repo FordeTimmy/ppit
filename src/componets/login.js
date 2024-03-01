@@ -1,6 +1,10 @@
 // login.jsx
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './login.css'; // Import CSS file for styling
+import BikeLogo from '../images/BikeLogo.png';
+
 
 function Login() { // Rename login to Login
   const [username, setUsername] = useState('');
@@ -33,6 +37,9 @@ function Login() { // Rename login to Login
 
   return (
     <div>
+      <div className="logo-container"> {/* Add a div for logo container */}
+        <img src="BikeLogo.png" alt="Bike Logo" className="logo" /> {/* Add the logo image */}
+      </div>
       <h2>{isRegistering ? 'Register' : 'Login'}</h2>
       {isRegistering && (
         <div>
