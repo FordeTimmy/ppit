@@ -1,17 +1,15 @@
-<<<<<<< HEAD
-// login.jsx
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './login.css'; // Import CSS file for styling
 import BikeLogo from '../images/BikeLogo.png';
 
-=======
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase';
->>>>>>> ba20cebd9e5c807931b76a14f2325f7098213014
+
 
 function Login() {
   const [username, setUsername] = useState('');

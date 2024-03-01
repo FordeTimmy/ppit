@@ -9,8 +9,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 10px; /* Adjust width of the strips */
-    background-color: #007bff; /* Set color for the strips */
+    width: 10px; 
+    background-color: #007bff; 
   }
   
   .container::before {
@@ -21,17 +21,6 @@
     right: 0;
   }
   
- /* Login.css */
-
-/* Login.css */
-
-/* Rest of the existing styles remain unchanged */
-/* Login.css */
-
-/* Rest of the existing styles remain unchanged */
-/* Login.css */
-
-/* Rest of the existing styles remain unchanged */
 body {
     display: flex;
     justify-content: center;
