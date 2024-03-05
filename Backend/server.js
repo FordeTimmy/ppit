@@ -5,7 +5,9 @@ const cors = require('cors');
 const firebaseAdmin = require('firebase-admin');
 
 // Firebase Admin SDK configuration
-const serviceAccount = require('./path/to/serviceAccountKey.json');
+const serviceAccount = require('C:\\Users\\timmy\\OneDrive\\Desktop\\PPIT_PROJ\\ppit\\serviceAccountKey.json');
+
+
 
 firebaseAdmin.initializeApp({
   credential: firebaseAdmin.credential.cert(serviceAccount),
