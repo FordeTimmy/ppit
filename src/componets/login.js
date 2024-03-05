@@ -20,12 +20,17 @@ function Login() {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       // Login successful
       console.log("Login successful", userCredential);
-      navigate('/'); // Redirect to home after successful login
+      console.log("Navigating to home page...");
+      navigate('/home'); // Redirect to home after successful login
     } catch (error) {
       // Handle login error
+      console.error("Login error:", error);
       setErrorMessage('Invalid email or password.');
     }
   };
+  
+  
+  
   
 
   const handleRegistration = () => {
