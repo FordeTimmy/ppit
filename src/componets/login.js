@@ -3,10 +3,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './login.css'; // Import CSS file for styling
 import BikeLogo from '../images/BikeLogo.png';
-
-
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase';
 
@@ -19,18 +15,18 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Login successful
-        console.log("Login successful", userCredential);
-        navigate('/'); // Redirect to home after successful login
-      })
-      .catch((error) => {
-        // Handle login error
-        setErrorMessage('Invalid email or password.');
-      });
+  const handleLogin = async () => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      // Login successful
+      console.log("Login successful", userCredential);
+      navigate('/'); // Redirect to home after successful login
+    } catch (error) {
+      // Handle login error
+      setErrorMessage('Invalid email or password.');
+    }
   };
+  
 
   const handleRegistration = () => {
     if (!email || !password) {
