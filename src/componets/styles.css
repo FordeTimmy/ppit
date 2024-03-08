@@ -1,53 +1,47 @@
 /* styles.css */
 
 .navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #333;
-    overflow: hidden;
-  }
-  
-  .navbar li {
-    float: left;
-  }
-  
-  .navbar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  .navbar li a:hover {
-    background-color: #111;
-  }
-  
-  .dropdown {
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    min-width: 160px;
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #111;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  background-color: #333;
+  overflow: hidden;
+  width: 100%; /* Make navbar span entire width */
+  display: flex;
+  justify-content: space-between; /* Align items to the ends */
+}
+
+.search-bar {
+  display: flex; /* Ensure search bar is a flex container */
+  align-items: center; /* Align items vertically */
+}
+
+.search-bar input[type="text"] {
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+}
+
+.search-bar button {
+  padding: 5px 10px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.category a {
+  color: white; /* Set text color for category links */
+  padding: 10px; /* Add padding to category links */
+  text-decoration: none; /* Remove underline */
+}
+
+.login-button button {
+  padding: 5px 10px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}

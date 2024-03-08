@@ -2,8 +2,9 @@
 
 import React from 'react';
 import Navbar from './navbar';
-import Card from './card';
 import './styles.css';
+import Card from './card'; // Correct import path
+
 const Home = () => {
   return (
     <div>

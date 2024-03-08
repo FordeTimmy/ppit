@@ -1,6 +1,7 @@
 // Card.js
 
 import React from 'react';
+import './styles.css';
 
 const Card = ({ title, content }) => {
   return (
