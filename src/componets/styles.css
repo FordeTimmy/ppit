@@ -1,5 +1,3 @@
-/* styles.css */
-
 .navbar {
   list-style-type: none;
   margin: 0;
@@ -31,9 +29,14 @@
   cursor: pointer;
 }
 
+.category {
+  margin-right: 5px; /* Reduce right margin */
+}
+
 .category a {
   color: white; /* Set text color for category links */
-  padding: 10px; /* Add padding to category links */
+  padding: 5px 8px; /* Adjust padding to control spacing */
+  margin-right: 5px; /* Reduce right margin */
   text-decoration: none; /* Remove underline */
 }
 
@@ -44,4 +47,47 @@
   border: none;
   border-radius: 3px;
   cursor: pointer;
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+  position: relative;
+  z-index: 1; /* Ensure dropdown is above other elements */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  width: 50%; /* Set the width of the dropdown to cover half of the page */
+  left: 0; /* Position the dropdown content at the left edge of the page */
+  top: 50px; /* Adjust the top position to align with the navbar */
+  z-index: 2; /* Increase z-index to ensure dropdown appears above other elements */
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #111;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  
+}
+.dropbtn {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover {
+  background-color: #555;
 }
