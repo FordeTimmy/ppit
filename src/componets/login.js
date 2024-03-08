@@ -59,7 +59,7 @@ function Login() {
   return (
     <div>
       <div className="logo-container"> {/* Add a div for logo container */}
-        <img src="BikeLogo.png" alt="Bike Logo" className="logo" /> {/* Add the logo image */}
+      <img src={BikeLogo} alt="Bike Logo" className="logo" />
       </div>
       <h2>{isRegistering ? 'Register' : 'Login'}</h2>
       {isRegistering && (
