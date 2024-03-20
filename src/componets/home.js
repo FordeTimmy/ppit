@@ -1,21 +1,29 @@
-// Home.js
-
 import React from 'react';
-import Navbar from './sidebar';
+import ProductItem from './ProductItem';
 import './styles.css';
-import Card from './card'; // Correct import path
+import eBikeImage from '../images/E-bike.jpg';
+import kidsBikeImage from '../images/Kids-bike.jpg';
+import Sidebar from './Sidebar'; // Ensure this path is correct
 
-const Home = () => {
+const HomePage = () => {
   return (
-    <div>
-      <Navbar />
-      <div className="card-container">
-        <Card title="Placeholder Title 1" content="This is some placeholder content for card 1." />
-        <Card title="Placeholder Title 2" content="This is some placeholder content for card 2." />
-        {/* Add more cards here */}
+    <div className="home-page-container">
+      <Sidebar />
+      <div className="product-list">
+        <ProductItem
+          title="Electric Bikes"
+          imageUrl={eBikeImage}
+          linkUrl="/electric-bikes"
+        />
+        <ProductItem
+          title="Kids Bikes"
+          imageUrl={kidsBikeImage}
+          linkUrl="/kids-bikes"
+        />
+        {/* Additional ProductItem components for more products */}
       </div>
     </div>
   );
 }
 
-export default Home;
+export default HomePage;

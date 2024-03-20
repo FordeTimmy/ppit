@@ -1,93 +1,119 @@
+/* General Styles */
 .navbar {
   list-style-type: none;
   margin: 0;
   padding: 10px;
   background-color: #333;
   overflow: hidden;
-  width: 100%; /* Make navbar span entire width */
+  width: 100%;
   display: flex;
-  justify-content: space-between; /* Align items to the ends */
+  justify-content: space-between;
 }
 
 .search-bar {
-  display: flex; /* Ensure search bar is a flex container */
-  align-items: center; /* Align items vertically */
+  display: flex;
+  align-items: center;
 }
 
-.search-bar input[type="text"] {
-  padding: 5px;
+.search-bar input[type="text"], .search-bar button {
+  padding: 5px 10px;
   border: none;
   border-radius: 3px;
-}
-
-.search-bar button {
-  padding: 5px 10px;
   background-color: #555;
   color: white;
-  border: none;
-  border-radius: 3px;
   cursor: pointer;
 }
 
-.category {
-  margin-right: 5px; /* Reduce right margin */
-}
-
-.category a {
-  color: white; /* Set text color for category links */
-  padding: 5px 8px; /* Adjust padding to control spacing */
-  margin-right: 5px; /* Reduce right margin */
-  text-decoration: none; /* Remove underline */
-}
-
-.login-button button {
-  padding: 5px 10px;
-  background-color: #555;
+.category a, .dropdown-content a, .dropbtn {
   color: white;
-  border: none;
-  border-radius: 3px;
+  padding: 5px 8px;
+  text-decoration: none;
+  background-color: #333; /* Ensures consistency */
+  border: none; /* Ensures buttons/links do not have a border */
   cursor: pointer;
+}
+
+.category a:hover, .dropdown-content a:hover, .dropbtn:hover {
+  background-color: #555;
 }
 
 /* Dropdown Menu Styling */
 .dropdown {
   position: relative;
-  z-index: 1; /* Ensure dropdown is above other elements */
+  z-index: 1;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: #333;
-  width: 50%; /* Set the width of the dropdown to cover half of the page */
-  left: 0; /* Position the dropdown content at the left edge of the page */
-  top: 50px; /* Adjust the top position to align with the navbar */
-  z-index: 2; /* Increase z-index to ensure dropdown appears above other elements */
-}
-
-.dropdown-content a {
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #111;
+  width: 50%;
+  left: 0;
+  top: 50px;
+  z-index: 2;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-  
-}
-.dropbtn {
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
 }
 
-.dropbtn:hover {
-  background-color: #555;
+.product-item {
+  display: block; /* Treat the product-item as a block-level element */
+  margin-left: auto; /* Automatically adjust the left margin */
+  margin-right: auto; /* Automatically adjust the right margin */
+  position: relative;
+  width: 300px; /* Or your desired width */
+  margin-bottom: 20px; /* Adjust spacing between items */
 }
+
+
+.product-image {
+  width: 100%;
+  height: auto;
+}
+
+.product-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+
+.btn.shop-now {
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Layout Styles */
+.home-page-container {
+  display: flex; /* Use flexbox layout */
+  flex-direction: row; /* Align children horizontally */
+  justify-content: flex-start; /* Align children to the start of the main axis */
+  align-items: flex-start; /* Align children to the start of the cross axis */
+  min-height: 100vh; /* Minimum height of 100% of the viewport height */
+}
+
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  flex-shrink: 0;
+  /* Add additional sidebar styles here */
+}
+
+.product-list {
+  display: flex; /* This will make .product-list a flex container */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children along the cross axis (horizontally) */
+  justify-content: flex-start; /* Align children to the start of the main axis (vertically) */
+  width: 100%; /* Take the full width of the parent container */
+  max-width: 600px; /* You can set a max-width to prevent items from stretching too wide */
+}
+
