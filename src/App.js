@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/login';
-import Home from './components/Home'; // Corrected import path
+import Home from './components/home'; // Corrected import path
 import ElectricBikeList from './components/ElectricBikeList';
 import BikeDetails from './components/BikeDetails';
 

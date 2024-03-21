@@ -1,128 +1,153 @@
-/* General Styles */
-
-/* Hamburger menu icon */
-.hamburger-menu {
-  cursor: pointer;
-  position: fixed;
-  z-index: 2; /* Above the sidebar */
-  top: 10px;
-  left: 10px;
-  font-size: 24px;
-  padding: 10px;
-  transition: left 0.3s;
+/* Reset margin and padding for body to ensure no space around the edges */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Sidebar styles */
-.sidebar {
-  width: 200px; /* Adjust width as needed */
-  height: 100vh; /* Take full height of the viewport */
-  background-color: #333; /* Background color of the sidebar */
-  color: white; /* Text color */
-  position: fixed; /* Fixed position */
-  top: 0; /* Align to the top */
-  left: -200px; /* Start off-screen */
+/* Ensure all elements consider border and padding in their box-sizing */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Navbar Styles */
+.navbar-header {
   display: flex;
-  flex-direction: column;
-  transition: left 0.3s;
+  align-items: center;
+  justify-content: space-between; /* Adjusted for better alignment */
+  background-color: #333; /* Dark gray for the header */
+  color: white;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: transform 0.3s ease; /* Smooth transition for the sidebar */
+  z-index: 5;
 }
 
-/* Open state for sidebar */
+.hamburger-menu {
+  padding: 20px;
+  cursor: pointer;
+  z-index: 6; /* Ensure it's above the sidebar */
+  display: flex; /* Show hamburger icon */
+}
+
+/* Adjust brand logo to be in the middle when the sidebar is not open */
+.brand-logo {
+  padding: 40px;
+  color: #78C850; /* Green theme */
+  text-decoration: none;
+  font-size: 24px;
+  z-index: 2; /* Ensure clickable over sidebar */
+  transition: transform 0.3s ease;
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex; 
+  gap: 50px; /* Spacing between nav items */
+  align-items: center;
+  justify-content: center; /* Center align the links */
+  flex: 1; /* Allow links to take up available space */
+  padding: 0;
+}
+
+.nav-item {
+  padding: 5px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #222; /* Slightly darker shade for the sidebar */
+  width: 200px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -200px; /* Start off-screen */
+  transition: left 0.3s ease;
+  z-index: 4;
+  padding-top: 100px; /* Make space for the top part of the header */
+}
+
 .sidebar.open {
-  left: 0; /* Move onto screen when open */
-}
-
-.shop-name {
-  font-size: 1.5rem; /* Adjust font size as needed */
-  padding: 1rem; /* Add padding */
-}
-
-.cart-link {
-  color: white; /* Text color */
-  text-decoration: none; /* Remove underline */
-  padding: 1rem; /* Add padding */
+  left: 0; /* Slide in */
 }
 
 .sidebar-links {
-  list-style: none; /* Remove default list styles */
-  padding: 0; /* Remove default padding */
-}
-
-.sidebar-links li {
-  padding: 0.5rem 1rem; /* Add padding to list items */
+  list-style: none;
+  padding: 0;
 }
 
 .sidebar-links li a {
-  color: white; /* Text color */
-  text-decoration: none; /* Remove underline */
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
 }
 
 .sidebar-links li a:hover {
-  text-decoration: underline; /* Add underline on hover */
+  background-color: #555; /* Lighter gray for hover effect */
 }
 
-/* Layout Styles */
-
-.layout {
-  transition: margin-left 0.3s;
-}
-
-.layout.sidebar-open {
-  margin-left: 200px; /* Adjust based on the sidebar width */
-}
-
-.layout.sidebar-open .hamburger-menu {
-  left: calc(200px + 10px); /* Sidebar width + original left spacing */
+/* Content Shift when Sidebar is open */
+.content-shift {
+  margin-left: 200px; /* Shift content by the sidebar's width */
 }
 
 .home-page-container {
-  margin-top: 80px; /* Adjust margin to prevent content from being hidden behind Navbar */
-  display: flex; /* Use flexbox layout */
-  flex-direction: row; /* Align children horizontally */
-  justify-content: flex-start; /* Align children to the start of the main axis */
-  align-items: flex-start; /* Align children to the start of the cross axis */
-  min-height: 100vh; /* Minimum height of 100% of the viewport height */
-  transition: margin-left 0.3s;
+  margin-top: 80px; /* Adjust margin totest prevent content from being hidden behind Navbar */
+  transition: margin-left 0.6s;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 50px;
 }
 
+/* Product List Styles */
 .product-list {
-  display: flex; /* This will make .product-list a flex container */
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Center children along the cross axis (horizontally) */
-  justify-content: flex-start; /* Align children to the start of the main axis (vertically) */
-  width: 100%; /* Take the full width of the parent container */
-  max-width: 600px; /* You can set a max-width to prevent items from stretching too wide */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .product-item {
-  display: block; /* Treat the product-item as a block-level element */
-  margin-left: auto; /* Automatically adjust the left margin */
-  margin-right: auto; /* Automatically adjust the right margin */
-  position: relative;
-  width: 300px; /* Or your desired width */
-  margin-bottom: 20px; /* Adjust spacing between items */
+  width: 300px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .product-image {
   width: 100%;
-  height: auto;
+  
 }
 
 .product-info {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  text-align: center;
+  padding: 0px;
 }
 
 .btn.shop-now {
+  background-color: #78C850; /* Green theme */
+  color: white;
+  border: none;
   padding: 10px 20px;
-  background-color: #000;
-  color: #fff;
+  cursor: pointer;
   text-transform: uppercase;
   text-decoration: none;
-  border: none;
-  cursor: pointer;
-  margin-top: 20px;
 }
+
