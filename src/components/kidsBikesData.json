@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "name": "Kids Bike Model 1",
+      "image": "/path-to-your-image/kids-bike1.jpg",
+      "description": "Description of Kids Bike Model 1",
+      "price": "$199"
+    },
+    {
+      "id": 2,
+      "name": "Kids Bike Model 2",
+      "image": "/path-to-your-image/kids-bike2.jpg",
+      "description": "Description of Kids Bike Model 2",
+      "price": "$249"
+    },
+    {
+      "id": 3,
+      "name": "Kids Bike Model 3",
+      "image": "/path-to-your-image/kids-bike3.jpg",
+      "description": "Description of Kids Bike Model 3",
+      "price": "$219"
+    },
+    {
+      "id": 4,
+      "name": "Kids Bike Model 4",
+      "image": "/path-to-your-image/kids-bike4.jpg",
+      "description": "Description of Kids Bike Model 4",
+      "price": "$189"
+    },
+    {
+      "id": 5,
+      "name": "Kids Bike Model 5",
+      "image": "/path-to-your-image/kids-bike5.jpg",
+      "description": "Description of Kids Bike Model 5",
+      "price": "$229"
+    },
+    {
+      "id": 6,
+      "name": "Kids Bike Model 6",
+      "image": "/path-to-your-image/kids-bike6.jpg",
+      "description": "Description of Kids Bike Model 6",
+      "price": "$209"
+    }
+  ]
+  
