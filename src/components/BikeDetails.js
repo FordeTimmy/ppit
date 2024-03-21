@@ -1,7 +1,6 @@
-// BikeDetails.js
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import bikesData from './bikesData'; // Adjust the path as necessary
+import bikesData from './bikesData';
 
 const BikeDetails = () => {
   let { id } = useParams();
