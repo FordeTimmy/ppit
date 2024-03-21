@@ -1,0 +1,56 @@
+
+.navbar-header {
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  color: white;
+}
+
+.top-bar {
+  padding: 0.5rem;
+  text-align: right;
+  background: #1a1a1a;
+}
+
+.top-link {
+  color: white;
+  padding: 0 0.5rem;
+  text-decoration: none;
+}
+
+.top-link:hover {
+  text-decoration: underline;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.brand-logo {
+  color: #78C850;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-item {
+  margin-left: 1rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #78C850; 
+}

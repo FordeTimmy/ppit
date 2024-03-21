@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Bike Model 1",
+        "image": "/path-to-your-image/e-bike1.jpg",
+        "description": "Description of Bike Model 1",
+        "price": "$999"
+    },
+    {
+        "id": 2,
+        "name": "Bike Model 2",
+        "image": "/path-to-your-image/e-bike2.jpg",
+        "description": "Description of Bike Model 2",
+        "price": "$1,199"
+    },
+    {
+        "id": 3,
+        "name": "Bike Model 2",
+        "image": "/path-to-your-image/e-bike2.jpg",
+        "description": "Description of Bike Model 2",
+        "price": "$1,199"
+    },
+      {
+        "id": 4,
+        "name": "Bike Model 2",
+        "image": "/path-to-your-image/e-bike2.jpg",
+        "description": "Description of Bike Model 2",
+        "price": "$1,199"
+    },
+      {
+        "id": 5,
+        "name": "Bike Model 2",
+        "image": "/path-to-your-image/e-bike2.jpg",
+        "description": "Description of Bike Model 2",
+        "price": "$1,199"
+    },
+      {
+        "id": 6,
+        "name": "Bike Model 2",
+        "image": "/path-to-your-image/e-bike2.jpg",
+        "description": "Description of Bike Model 2",
+        "price": "$1,199"
+    }
+]
