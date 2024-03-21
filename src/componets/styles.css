@@ -1,60 +1,96 @@
 /* General Styles */
-.navbar {
-  list-style-type: none;
-  margin: 0;
+
+/* Hamburger menu icon */
+.hamburger-menu {
+  cursor: pointer;
+  position: fixed;
+  z-index: 2; /* Above the sidebar */
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
   padding: 10px;
-  background-color: #333;
-  overflow: hidden;
-  width: 100%;
+  transition: left 0.3s;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 200px; /* Adjust width as needed */
+  height: 100vh; /* Take full height of the viewport */
+  background-color: #333; /* Background color of the sidebar */
+  color: white; /* Text color */
+  position: fixed; /* Fixed position */
+  top: 0; /* Align to the top */
+  left: -200px; /* Start off-screen */
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  transition: left 0.3s;
 }
 
-.search-bar {
-  display: flex;
-  align-items: center;
+/* Open state for sidebar */
+.sidebar.open {
+  left: 0; /* Move onto screen when open */
 }
 
-.search-bar input[type="text"], .search-bar button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 3px;
-  background-color: #555;
-  color: white;
-  cursor: pointer;
+.shop-name {
+  font-size: 1.5rem; /* Adjust font size as needed */
+  padding: 1rem; /* Add padding */
 }
 
-.category a, .dropdown-content a, .dropbtn {
-  color: white;
-  padding: 5px 8px;
-  text-decoration: none;
-  background-color: #333; /* Ensures consistency */
-  border: none; /* Ensures buttons/links do not have a border */
-  cursor: pointer;
+.cart-link {
+  color: white; /* Text color */
+  text-decoration: none; /* Remove underline */
+  padding: 1rem; /* Add padding */
 }
 
-.category a:hover, .dropdown-content a:hover, .dropbtn:hover {
-  background-color: #555;
+.sidebar-links {
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
 }
 
-/* Dropdown Menu Styling */
-.dropdown {
-  position: relative;
-  z-index: 1;
+.sidebar-links li {
+  padding: 0.5rem 1rem; /* Add padding to list items */
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #333;
-  width: 50%;
-  left: 0;
-  top: 50px;
-  z-index: 2;
+.sidebar-links li a {
+  color: white; /* Text color */
+  text-decoration: none; /* Remove underline */
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+.sidebar-links li a:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Layout Styles */
+
+.layout {
+  transition: margin-left 0.3s;
+}
+
+.layout.sidebar-open {
+  margin-left: 200px; /* Adjust based on the sidebar width */
+}
+
+.layout.sidebar-open .hamburger-menu {
+  left: calc(200px + 10px); /* Sidebar width + original left spacing */
+}
+
+.home-page-container {
+  margin-top: 80px; /* Adjust margin to prevent content from being hidden behind Navbar */
+  display: flex; /* Use flexbox layout */
+  flex-direction: row; /* Align children horizontally */
+  justify-content: flex-start; /* Align children to the start of the main axis */
+  align-items: flex-start; /* Align children to the start of the cross axis */
+  min-height: 100vh; /* Minimum height of 100% of the viewport height */
+  transition: margin-left 0.3s;
+}
+
+.product-list {
+  display: flex; /* This will make .product-list a flex container */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children along the cross axis (horizontally) */
+  justify-content: flex-start; /* Align children to the start of the main axis (vertically) */
+  width: 100%; /* Take the full width of the parent container */
+  max-width: 600px; /* You can set a max-width to prevent items from stretching too wide */
 }
 
 .product-item {
@@ -65,7 +101,6 @@
   width: 300px; /* Or your desired width */
   margin-bottom: 20px; /* Adjust spacing between items */
 }
-
 
 .product-image {
   width: 100%;
@@ -91,29 +126,3 @@
   cursor: pointer;
   margin-top: 20px;
 }
-
-/* Layout Styles */
-.home-page-container {
-  display: flex; /* Use flexbox layout */
-  flex-direction: row; /* Align children horizontally */
-  justify-content: flex-start; /* Align children to the start of the main axis */
-  align-items: flex-start; /* Align children to the start of the cross axis */
-  min-height: 100vh; /* Minimum height of 100% of the viewport height */
-}
-
-.sidebar {
-  width: 200px;
-  height: 100vh;
-  flex-shrink: 0;
-  /* Add additional sidebar styles here */
-}
-
-.product-list {
-  display: flex; /* This will make .product-list a flex container */
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Center children along the cross axis (horizontally) */
-  justify-content: flex-start; /* Align children to the start of the main axis (vertically) */
-  width: 100%; /* Take the full width of the parent container */
-  max-width: 600px; /* You can set a max-width to prevent items from stretching too wide */
-}
-

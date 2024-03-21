@@ -1,37 +1,36 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './styles.css'; // Make sure to update your styles to include the sidebar
+import './styles.css'; // Make sure this is the path to your CSS file
 
 const Sidebar = () => {
-  // State to manage whether the sidebar is open or closed
   const [isOpen, setIsOpen] = useState(false);
 
-  // Function to toggle the sidebar's visibility
-  const toggleSidebar = () => setIsOpen(!isOpen);
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <>
+    <div className={`layout ${isOpen ? 'sidebar-open' : ''}`}>
       <div className="hamburger-menu" onClick={toggleSidebar}>
-        ☰ {/* This can be replaced with an icon */}
+        ☰
       </div>
-      {isOpen && (
-        <aside className="sidebar">
-          <div className="shop-name">Our Shop</div>
-          <Link to="/cart" className="cart-link">
-            Cart {/* This can be replaced with an icon */}
-          </Link>
-          <ul className="sidebar-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Brands</a></li>
-            <li><a href="#">Delivery Information</a></li>
-            <li><Link to="/login">Login</Link></li>
-          </ul>
-        </aside>
-      )}
-    </>
+      <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
+        <div className="shop-name">Our Shop</div>
+        <Link to="/cart" className="cart-link">Cart</Link>
+        <ul className="sidebar-links">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/contact">Contact Us</Link></li>
+          <li><Link to="/about">About Us</Link></li>
+          <li><Link to="/brands">Brands</Link></li>
+          <li><Link to="/delivery">Delivery Information</Link></li>
+          <li><Link to="/login">Login</Link></li>
+        </ul>
+      </aside>
+      <main className={`home-page-container ${isOpen ? 'content-shift' : ''}`}>
+        {/* Main content goes here */}
+      </main>
+    </div>
   );
-}
+};
 
 export default Sidebar;
