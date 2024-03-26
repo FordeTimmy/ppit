@@ -1,44 +1,46 @@
 [
+  
     {
         "id": 1,
         "name": "Bike Model 1",
-        "image": "/path-to-your-image/e-bike1.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/ppit-31389.appspot.com/o/electricbike_red.png?alt=media",
         "description": "Description of Bike Model 1",
         "price": "$999"
     },
     {
         "id": 2,
         "name": "Bike Model 2",
-        "image": "/path-to-your-image/e-bike2.jpg",
+        "image": "https://firebasestorage.googleapis.com/v0/b/ppit-31389.appspot.com/o/electricbike_red_ride.png?alt=media",
         "description": "Description of Bike Model 2",
         "price": "$1,199"
     },
-    {
-        "id": 3,
-        "name": "Bike Model 2",
-        "image": "/path-to-your-image/e-bike2.jpg",
-        "description": "Description of Bike Model 2",
-        "price": "$1,199"
-    },
-      {
-        "id": 4,
-        "name": "Bike Model 2",
-        "image": "/path-to-your-image/e-bike2.jpg",
-        "description": "Description of Bike Model 2",
-        "price": "$1,199"
-    },
-      {
-        "id": 5,
-        "name": "Bike Model 2",
-        "image": "/path-to-your-image/e-bike2.jpg",
-        "description": "Description of Bike Model 2",
-        "price": "$1,199"
-    },
-      {
-        "id": 6,
-        "name": "Bike Model 2",
-        "image": "/path-to-your-image/e-bike2.jpg",
-        "description": "Description of Bike Model 2",
-        "price": "$1,199"
-    }
+  
+  {
+      "id": 3,
+      "name": "Bike Model 3",
+      "image": "https://firebasestorage.googleapis.com/v0/b/your-firebase-project.appspot.com/o/images%2Fe-bike2.jpg?alt=media",
+      "description": "Description of Bike Model 3",
+      "price": "$1,199"
+  },
+  {
+      "id": 4,
+      "name": "Bike Model 4",
+      "image": "https://firebasestorage.googleapis.com/v0/b/your-firebase-project.appspot.com/o/images%2Fe-bike2.jpg?alt=media",
+      "description": "Description of Bike Model 4",
+      "price": "$1,199"
+  },
+  {
+      "id": 5,
+      "name": "Bike Model 5",
+      "image": "https://firebasestorage.googleapis.com/v0/b/your-firebase-project.appspot.com/o/images%2Fe-bike2.jpg?alt=media",
+      "description": "Description of Bike Model 5",
+      "price": "$1,199"
+  },
+  {
+      "id": 6,
+      "name": "Bike Model 6",
+      "image": "https://firebasestorage.googleapis.com/v0/b/your-firebase-project.appspot.com/o/images%2Fe-bike2.jpg?alt=media",
+      "description": "Description of Bike Model 6",
+      "price": "$1,199"
+  }
 ]

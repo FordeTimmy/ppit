@@ -2,7 +2,7 @@
     {
       "id": 1,
       "name": "Kids Bike Model 1",
-      "image": "/path-to-your-image/kids-bike1.jpg",
+      "image": "C:/Users/timmy/OneDrive - Atlantic TU/PPITImages/E-bike.jpg",
       "description": "Description of Kids Bike Model 1",
       "price": "$199"
     },

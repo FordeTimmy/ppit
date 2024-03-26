@@ -1,0 +1,28 @@
+/* BikeDetails.css */
+.bike-details {
+    max-width: 800px; /* Set a max-width for the container */
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .bike-image {
+    max-width: 100%; /* Responsive image size */
+    max-height: 300px; /* Adjust the height as needed */
+    display: block; /* To center the image */
+    margin: auto;
+  }
+  
+  /* Carousel specific styles would go here */
+  .carousel {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .carousel img {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+  }
+  
+  /* Add any additional styling you need for the carousel here */
+  

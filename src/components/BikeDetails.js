@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import bikesData from './bikesData';
+import bikesData from './bikesData.json';
+
 
 const BikeDetails = () => {
   let { id } = useParams();
