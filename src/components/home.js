@@ -4,7 +4,9 @@ import './styles.css';
 
 import eBikeImage from '../images/E-bike.jpg';
 import kidsBikeImage from '../images/Kids-bike.jpg';
-import Navbar from './navbar'; // Import the Navbar component
+import Navbar from './Navbar';
+
+
 
 const Home = () => {
   return (

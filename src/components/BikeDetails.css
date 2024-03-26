@@ -1,28 +1,73 @@
 /* BikeDetails.css */
-.bike-details {
-    max-width: 800px; /* Set a max-width for the container */
+
+.bike-details-container {
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center items */
+    align-items: center; /* Center items vertically */
+    max-width: 1200px; /* Increase max-width for the container */
     margin: auto;
     padding: 20px;
-  }
-  
-  .bike-image {
-    max-width: 100%; /* Responsive image size */
-    max-height: 300px; /* Adjust the height as needed */
-    display: block; /* To center the image */
-    margin: auto;
-  }
-  
-  /* Carousel specific styles would go here */
-  .carousel {
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-  .carousel img {
-    max-width: 100%;
-    display: block;
-    margin: auto;
-  }
-  
-  /* Add any additional styling you need for the carousel here */
-  
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-direction: column; /* Stack thumbnails vertically */
+    align-items: center; /* Center thumbnails */
+    gap: 10px; /* Space between thumbnails */
+}
+
+.bike-image-container {
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center the main image */
+    align-items: center; /* Center the image vertically */
+    flex-direction: column; /* Stack image and thumbnails vertically */
+}
+
+.bike-thumbnail {
+    width: 200px; /* Width of thumbnails */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Indicates that the thumbnails are clickable */
+    border: 2px solid transparent; /* Transparent border for spacing */
+}
+
+.bike-thumbnail.active {
+    border-color: #333; /* Active thumbnail has a distinct border */
+}
+
+.bike-image {
+    max-width: 150%; /* Limit the width to the parent container's width */
+    max-height: 600px; /* Adjust the height limit as needed */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Image block level */
+    margin: auto; /* Center image horizontally */
+    object-fit: contain; /* Ensure the image is contained within the element's box */
+}
+
+.bike-description {
+    flex: 1; /* Allows the description container to grow */
+    padding: 0 20px; /* Add padding around the description */
+    text-align: left; /* Align text to the left */
+}
+
+/* Additional styles for typography and spacing */
+h2 {
+    font-size: 2em; /* Larger font size for bike name */
+    margin-bottom: 0.5em; /* Space between name and price */
+}
+
+p {
+    margin-bottom: 0.5em; /* Space between paragraphs */
+    line-height: 1.5; /* Improve readability */
+}
+/* Additional styles for typography and spacing */
+h2 {
+    font-size: 2.5em; /* Increase font size for bike name */
+    margin-bottom: 0.5em; /* Space between name and price */
+}
+
+p {
+    font-size: 1.5em; /* Increase font size for paragraphs */
+    margin-bottom: 0.5em; /* Space between paragraphs */
+    line-height: 1.5; /* Improve readability */
+}
