@@ -1,0 +1,24 @@
+.bikes-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .bike-item {
+    width: 30%; /* Adjust width as needed */
+    margin-bottom: 20px;
+  }
+  
+  .bike-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .bike-info {
+    text-align: center;
+  }
+  
