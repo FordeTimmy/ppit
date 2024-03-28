@@ -7,6 +7,7 @@ import BikeDetails from './components/BikeDetails';
 import KidsBikeList from './components/KidsBikeList';
 import KidsBikeDetails from './components/KidsBikeDetails';
 import Navbar from './components/Navbar'; // Import the Navbar
+import Accessories from './components/Accessories';
 
 const AppWrapper = () => {
   const location = useLocation(); // Get the current location
@@ -21,6 +22,7 @@ const AppWrapper = () => {
         <Route path="/Electricbikes/:id" element={<BikeDetails />} />
         <Route path="/Kidsbikes" element={<KidsBikeList />} />
         <Route path="/Kidsbikes/:id" element={<KidsBikeDetails />} />
+        <Route path="/accessories" element={<Accessories />} /> 
       </Routes>
     </>
   );
