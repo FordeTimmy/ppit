@@ -1,0 +1,51 @@
+/* The main container for the electric bikes section */
+.bikes-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* This class is for the row that contains all the bike items */
+  .row {
+    display: flex;
+    flex-wrap: wrap; /* Allows bike items to wrap to the next line on smaller screens */
+    justify-content: space-between;
+  }
+  
+  /* Individual bike items */
+  .bike-item {
+    width: 20%; /* For larger screens, we start with 3 items per row */
+    margin-bottom: 20px; /* Adds space between rows of bikes */
+  }
+  
+  /* The images within each bike item */
+  .bike-image {
+    width: 100%;
+    height: auto; /* Keeps the aspect ratio of the images */
+  }
+  
+  /* The info section of each bike, like name and price */
+  .bike-info {
+    text-align: center; /* Centers the text within the info area */
+  }
+  
+  /* Media query for tablet devices and small desktop screens */
+  @media (max-width: 1024px) {
+    .bike-item {
+      width: 48%; /* Adjusts to 2 items per row on medium screens */
+    }
+  }
+  
+  /* Media query for mobile devices in landscape orientation and tablets in portrait */
+  @media (max-width: 768px) {
+    .bike-item {
+      width: 100%; /* Adjusts to 1 item per row on small screens */
+    }
+  }
+  
+  /* Optional: Media query for very small screens like mobile devices in portrait */
+  @media (max-width: 480px) {
+    .row {
+      justify-content: center; /* Centers the items if there's only one per row */
+    }
+  }
+  

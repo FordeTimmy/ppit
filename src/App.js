@@ -8,6 +8,8 @@ import KidsBikeList from './components/KidsBikeList';
 import KidsBikeDetails from './components/KidsBikeDetails';
 import Navbar from './components/Navbar'; // Import the Navbar
 import Accessories from './components/Accessories';
+import MountainBikeList from './components/MountainBikeList'; // Adjust the path if MountainBikeList is in a different folder
+
 
 const AppWrapper = () => {
   const location = useLocation(); // Get the current location
@@ -23,6 +25,8 @@ const AppWrapper = () => {
         <Route path="/Kidsbikes" element={<KidsBikeList />} />
         <Route path="/Kidsbikes/:id" element={<KidsBikeDetails />} />
         <Route path="/accessories" element={<Accessories />} /> 
+        <Route path="/mountainbikes" element={<MountainBikeList />} />
+
       </Routes>
     </>
   );
