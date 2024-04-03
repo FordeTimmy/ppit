@@ -6,29 +6,32 @@ import ElectricBikeList from './components/ElectricBikeList';
 import BikeDetails from './components/BikeDetails';
 import KidsBikeList from './components/KidsBikeList';
 import KidsBikeDetails from './components/KidsBikeDetails';
-import Navbar from './components/Navbar'; // Import the Navbar
+import Navbar from './components/Navbar';
 import Accessories from './components/Accessories';
-import MountainBikeList from './components/MountainBikeList'; // Adjust the path if MountainBikeList is in a different folder
-import WomensBikeList from './components/WomensBikeList'; // Import WomensBikeList
+import MountainBikeList from './components/MountainBikeList';
+import WomensBikeList from './components/WomensBikeList';
+import Footer from './components/Footer'; // Adjusted path if Footer is inside the components folder
+
 
 const AppWrapper = () => {
-  const location = useLocation(); // Get the current location
+  const location = useLocation();
 
   return (
     <>
-      {location.pathname !== '/' && <Navbar />} {/* Conditionally render the Navbar */}
+      {location.pathname !== '/' && <Navbar />}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/Electricbikes" element={<ElectricBikeList />} />
-        <Route path="/Electricbikes/:id" element={<BikeDetails />} />
-        <Route path="/Kidsbikes" element={<KidsBikeList />} />
-        <Route path="/Kidsbikes/:id" element={<KidsBikeDetails />} />
+        <Route path="/electricbikes" element={<ElectricBikeList />} />
+        <Route path="/electricbikes/:id" element={<BikeDetails />} />
+        <Route path="/kidsbikes" element={<KidsBikeList />} />
+        <Route path="/kidsbikes/:id" element={<KidsBikeDetails />} />
         <Route path="/accessories" element={<Accessories />} /> 
         <Route path="/mountainbikes" element={<MountainBikeList />} />
         <Route path="/womensbikes" element={<WomensBikeList />} />
-
+        {/* Remove the Footer route, it's not needed */}
       </Routes>
+      <Footer /> {/* This will render the Footer component on every page */}
     </>
   );
 };
@@ -37,6 +40,7 @@ function App() {
   return (
     <Router>
       <AppWrapper />
+      {/* The Footer component will already be included in AppWrapper, no need to add it here again */}
     </Router>
   );
 }
