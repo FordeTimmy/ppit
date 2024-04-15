@@ -48,6 +48,8 @@ app.post('/login', async (req, res) => {
   // User login logic
 });
 
+
+
 console.log("FIREBASE_SERVICE_ACCOUNT_KEY_PATH:", process.env.FIREBASE_SERVICE_ACCOUNT_KEY_PATH);
 
 // Start the server
