@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <header className="navbar-header">
-      <Link to="/" className="brand-logo">Roberts & Forde Cycles</Link>
+      <Link to="/home" className="brand-logo">Roberts & Forde Cycles</Link>
       <div className="nav-container">
         <ul className="nav-links">
           <li className="nav-item">
