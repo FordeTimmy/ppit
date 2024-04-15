@@ -1,0 +1,67 @@
+[
+    {
+      "id": 1,
+      "name": "Topside Helmet Light",
+      "images": [
+        "https://firebasestorage.googleapis.com/v0/b/ppit-31389.appspot.com/o/BikeLight1.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/ppit-31389.appspot.com/o/BikeLight1OnBike.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/ppit-31389.appspot.com/o/BikeLight1TurnedOn.png?alt=media"
+      ],
+      "type": "Helmet Light",
+      "description": "The Topside Helmet Light is a versatile 3-in-1 light that can be used as a front light, rear light, or both. It features a USB rechargeable Li-Ion battery with long run times, including double flash for 18 hours (both lights), constant mode for 2 hours 30 minutes (both lights), and various other modes. The light is equipped with a wide-angle fish-eye lens for superb visibility and is waterproof with an IP65 rating. Designed to be lightweight and durable, it provides excellent visibility without adding bulk to your helmet. Whether you're commuting or riding on dark streets, the Topside Helmet Light ensures you stay visible to others on the road.",
+      "features": [
+        "Can be used as front light, rear light, or both",
+        "USB rechargeable Li-Ion battery",
+        "Multiple modes with long run times",
+        "Last mode memory function",
+        "Wide-angle fish-eye lens",
+        "Waterproof IP65",
+        "Lightweight and durable design"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Bikehut L1200 Front Light",
+      "images": [
+        "https://firebasestorage.googleapis.com/v0/b/ppit-31389.appspot.com/o/BikeLight2.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/ppit-31389.appspot.com/o/BikeLight2OnBike.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/ppit-31389.appspot.com/o/BikeLight2TurnedOn.png?alt=media"
+      ],
+      "type": "Front Light",
+      "description": "The Bikehut L1200 front light uses cutting-edge technology to provide superior light and visibility in poor light conditions. With a 1200 lumen output and high-intensity reflector, it ensures maximum visibility with an impressive spread of light. The light offers four different power/lighting modes, including low, medium, high, and flashing modes, allowing users to choose the mode that suits their situation best. The rechargeable battery provides long-lasting usage, and the light comes with mounts for both helmet and handlebar for added convenience. With a battery life indicator and a weight of 274g, the Bikehut L1200 is a reliable choice for cyclists seeking high-performance lighting.",
+      "features": [
+        "RUXEON REVEL ES LED with high-intensity reflector",
+        "Choice of low, medium, high, and flashing modes",
+        "Up to 5 hours run time in flashing mode",
+        "Mounts for helmet and handlebar",
+        "Rechargeable battery (DC 4.2V, 5,200mAh Li-ion)",
+        "Battery life indicator",
+        "Weight: 274g"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Cateye AMPP 400 Front Light",
+      "images": [
+        "https://firebasestorage.googleapis.com/v0/b/ppit-31389.appspot.com/o/BikeLight3.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/ppit-31389.appspot.com/o/BikeLight3OnBike.png?alt=media",
+        "https://firebasestorage.googleapis.com/v0/b/ppit-31389.appspot.com/o/BikeLight3TurnedOn.png?alt=media"
+      ],
+      "type": "Front Light",
+      "description": "Perfect for urban riding, the compact, lightweight Cateye AMPP 400 Front Light offers impressive functionality and visibility. The rechargeable headlight delivers 400 lumens of brightness with a wide beam thanks to OptiCube™ lens technology, ensuring excellent side visibility. It features a low battery indicator that illuminates in red when the battery is less than 20%, and it's USB rechargeable with a Micro-USB cable included. The light has four modes: High, Low, Daytime HyperConstant, and Flashing. With a mode memory function, it turns on in High mode with a double-click of the power button. The FlexTight™ bracket securely holds the light on your bars, and the improved release button makes it easy to remove the light unit from the bracket. Additionally, it comes with a helmet mount and center fork bracket (optional) for added versatility.",
+      "features": [
+        "Rechargeable headlight (400 lm)",
+        "Wide beam with OptiCube™ lens technology",
+        "Excellent side visibility",
+        "Low battery indicator (Illuminates in red with less than 20% battery remaining)",
+        "USB rechargeable (Micro-USB cable included)",
+        "Mode memory function",
+        "Four light modes (High / Low / Daytime HyperConstant / Flashing)",
+        "Turns on High mode with double-click of power button",
+        "FlexTight™ bracket",
+        "Improved release button for easy removal",
+        "Helmet mount and center fork bracket (optional)"
+      ]
+    }
+  ]
+  

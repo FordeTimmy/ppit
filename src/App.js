@@ -9,9 +9,15 @@ import KidsBikeDetails from './components/KidsBikeDetails';
 import Navbar from './components/Navbar';
 import Accessories from './components/Accessories';
 import MountainBikeList from './components/MountainBikeList';
+import MountainBikeDetails from './components/MountainBikeDetails';
 import WomensBikeList from './components/WomensBikeList';
-import Footer from './components/Footer'; // Adjusted path if Footer is inside the components folder
-
+import WomensBikeDetails from './components/WomensBikeDetails';
+import Footer from './components/Footer';
+import BikeLocksList from './components/BikeLocksList';
+import BikeLocksDetails from './components/BikeLocksDetails';
+import BikeLightsDetails from './components/BikeLightsDetails';
+import BikeLightsList from './components/BikeLightsList';
+import BikeReflectorsList from './components/BikeReflectorsList'; // Import the BikeReflectorsList component
 
 const AppWrapper = () => {
   const location = useLocation();
@@ -29,9 +35,14 @@ const AppWrapper = () => {
         <Route path="/accessories" element={<Accessories />} /> 
         <Route path="/mountainbikes" element={<MountainBikeList />} />
         <Route path="/womensbikes" element={<WomensBikeList />} />
-        {/* Remove the Footer route, it's not needed */}
+        <Route path="/bikelights" element={<BikeLightsList />} />
+        <Route path="/bikelights/:id" element={<BikeLightsDetails />} />
+        <Route path="/bikelocks" element={<BikeLocksList />} />
+        <Route path="/bikelocks/:id" element={<BikeLocksDetails />} />
+        {/* Add route for bike reflectors list */}
+        <Route path="/bikereflectors" element={<BikeReflectorsList />} />
       </Routes>
-      <Footer /> {/* This will render the Footer component on every page */}
+      <Footer />
     </>
   );
 };
@@ -40,7 +51,6 @@ function App() {
   return (
     <Router>
       <AppWrapper />
-      {/* The Footer component will already be included in AppWrapper, no need to add it here again */}
     </Router>
   );
 }
