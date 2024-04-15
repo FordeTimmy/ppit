@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ isAdmin }) => {
   return (
     <header className="navbar-header">
       <Link to="/home" className="brand-logo">Roberts & Forde Cycles</Link>
@@ -14,10 +14,16 @@ const Navbar = () => {
           <li className="nav-item">
             <Link to="/accessories" className="nav-link">Accessories</Link>
           </li>
+          {/* Display Admin Dashboard link only for admins */}
+          {isAdmin && (
+            <li className="nav-item">
+              <Link to="/admindashboard" className="nav-link">Admin Dashboard</Link>
+            </li>
+          )}
         </ul>
         <ul className="nav-links register-items">
           <li className="nav-item">
-            <Link to="/" className="nav-link">Sign In</Link>
+            <Link to="/admin" className="nav-link">Admin Login</Link>
           </li>
           <li className="nav-item">
             <Link to="/register" className="nav-link">Register</Link>
