@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MountainBikeData from './MountainBikeData'; // Ensure this points to your actual data file
-import './MountainBikeList.css'; // Ensure CSS styles are correctly defined
+import './ElectricBikeList.css';
 
 const MountainBikeList = () => {
   return (

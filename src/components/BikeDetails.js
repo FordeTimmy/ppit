@@ -6,15 +6,26 @@ import './BikeDetails.css'; // Import CSS file
 const BikeDetails = () => {
   let { id } = useParams();
   const bike = bikesData.find(bike => bike.id === parseInt(id));
-  const [selectedImage, setSelectedImage] = useState(bike?.images[0]); // Start with the first image
+  const [selectedImage, setSelectedImage] = useState(bike?.images[0]);
+
+  const addToBasket = () => {
+    alert(`Added ${bike.name} to basket!`);
+  };
 
   return (
     <div className="bike-details-container">
       {bike ? (
-        <>
-          <div className="bike-image-container">
+        <div className="bike-content">
+          <div className="bike-image-section">
+            {/* Bike name and price */}
+            <div className="bike-name-price">
+              <h2>{bike.name}</h2>
+              <p>{bike.price}</p>
+            </div>
+            
+            {/* Bike image and thumbnails */}
             <img src={selectedImage} alt={bike.name} className="bike-image" />
-            <div className="bike-thumbnails">
+            <div className="thumbnail-container">
               {bike.images.map((image, index) => (
                 <img 
                   key={index} 
@@ -25,26 +36,22 @@ const BikeDetails = () => {
                 />
               ))}
             </div>
-            <div className="bike-name-price">
-              <h2>{bike.name}</h2>
-              <p>{bike.price}</p>
-            </div>
+            
+            {/* Add to Basket Button */}
+            <button onClick={addToBasket} className="add-to-basket-btn">Add to Basket</button>
           </div>
-          <div className="bike-description">
-            <p>{bike.description}</p>
-            <p>Frame: {bike.frame}</p>
-            <p>Gears: {bike.gears}</p>
-            <p>Brakes: {bike.brakes}</p>
-            <p>Wheels: {bike.wheels}</p>
-            <p>Motor Type: {bike.motorType}</p>
-            <p>Battery: {bike.battery}</p>
-            <p>Average Range: {bike.averageRange}</p>
-            <p>Maximum Speed: {bike.maximumSpeed}</p>
-            <p>Suspension: {bike.suspension}</p>
-            <p>Weight: {bike.weight}</p>
-            <p>Warranty: {bike.warranty}</p>
+
+          {/* Bike details */}
+          <div className="bike-details-right">
+            <ul className="bike-details-text">
+              <li><strong>Description:</strong> {bike.description}</li>
+              <li><strong>Frame:</strong> {bike.frame}</li>
+              <li><strong>Gears:</strong> {bike.gears}</li>
+              <li><strong>Brakes:</strong> {bike.brakes}</li>
+              <li><strong>Warranty:</strong> {bike.warranty}</li>
+            </ul>
           </div>
-        </>
+        </div>
       ) : (
         <p>Bike not found</p>
       )}

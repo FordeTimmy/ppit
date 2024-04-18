@@ -21,7 +21,7 @@ import BikeLocksDetails from './components/BikeLocksDetails';
 import BikeLightsDetails from './components/BikeLightsDetails';
 import BikeLightsList from './components/BikeLightsList';
 import BikeReflectorsList from './components/BikeReflectorsList';
-
+import CheckoutPage from './components/CheckoutPage';
 const App = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [cartItems, setCartItems] = useState([]); // State for cart items
@@ -52,7 +52,9 @@ const App = () => {
         <Route path="/kidsbikes/:id" element={<KidsBikeDetails />} />
         <Route path="/accessories" element={<Accessories />} /> 
         <Route path="/mountainbikes" element={<MountainBikeList />} />
+        <Route path="/mountainbikes/:id" element={<MountainBikeDetails />} />
         <Route path="/womensbikes" element={<WomensBikeList />} />
+        <Route path="/womensbikes/:id" element={<WomensBikeDetails />} />
         <Route path="/bikelights" element={<BikeLightsList />} />
         <Route path="/bikelights/:id" element={<BikeLightsDetails />} />
         <Route path="/bikelocks" element={<BikeLocksList />} />

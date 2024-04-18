@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import WomensBikeData from './WomensBikeData'; // Ensure this points to your actual data file
-import './WomensBikeList.css'; // Ensure CSS styles are correctly defined
+import './ElectricBikeList.css';
 
 const WomensBikeList = () => {
   return (
