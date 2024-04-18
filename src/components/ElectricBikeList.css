@@ -1,50 +1,61 @@
-/* The main container for the electric bikes section */
-.bikes-container {
+/* General styles for the bike list */
+.bike-list {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem; /* Adjust the gap as needed */
 }
 
-/* This class is for the row that contains all the bike items */
-.row {
-  display: flex;
-  flex-wrap: wrap; /* Allows bike items to wrap to the next line on smaller screens */
-  justify-content: space-between;
-}
-
-/* Individual bike items */
 .bike-item {
-  width: 20%; /* For larger screens, we start with 3 items per row */
-  margin-bottom: 20px; /* Adds space between rows of bikes */
+  border: 1px solid #ddd;
+  padding: 1rem;
+  width: 250px; /* Adjust the width as necessary */
+  margin: 10px;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  background-color: #f7f7f7; /* Optional: Background color for the container */
+  overflow: hidden; /* Ensure the image doesn't overflow the container */
+  position: relative; /* This positions the quick view absolutely to the bike item */
 }
 
-/* The images within each bike item */
-.bike-image {
-  width: 100%;
-  height: auto; /* Keeps the aspect ratio of the images */
+.bike-image-container {
+  width: 100%; /* Width of the container */
+  padding-top: 56.25%; /* Aspect ratio of the image container (16:9 in this case) */
+  position: relative;
+  background-color: #f7f7f7;
 }
 
-/* The info section of each bike, like name and price */
-.bike-info {
-  text-align: center; /* Centers the text within the info area */
+.bike-item img {
+  position: absolute;
+  width: 100%; /* Ensure the image spans the full width of the container */
+  height: 100%; /* Ensure the image spans the full height of the container */
+  top: 0;
+  left: 0;
+  object-fit: cover; /* This will cover the area, clipping the image if necessary */
 }
 
-/* Media query for tablet devices and small desktop screens */
-@media (max-width: 1024px) {
-  .bike-item {
-    width: 48%; /* Adjusts to 2 items per row on medium screens */
-  }
+.bike-item:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-/* Media query for mobile devices in landscape orientation and tablets in portrait */
-@media (max-width: 768px) {
-  .bike-item {
-    width: 100%; /* Adjusts to 1 item per row on small screens */
-  }
+/* Styles for the Quick View button */
+.quick-view-btn {
+  display: block;
+  position: absolute;
+  bottom: 0; /* Align the button to the bottom of the bike-item */
+  left: 0;
+  width: 100%; /* The button will span the full width of the bike-item */
+  padding: 0.5rem 0; /* Add padding at the top and bottom */
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(100%); /* Hide the button below the viewable area */
+  opacity: 0;
 }
 
-/* Optional: Media query for very small screens like mobile devices in portrait */
-@media (max-width: 480px) {
-  .row {
-    justify-content: center; /* Centers the items if there's only one per row */
-  }
+.bike-item:hover .quick-view-btn {
+  transform: translateY(0); /* Show the button */
+  opacity: 1;
 }

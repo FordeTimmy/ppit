@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { CartProvider } from './components/CartContext';
 import AdminLogin from './components/AdminLogin'; // Import AdminLogin component
 import AdminDashboard from './components/AdminDashboard'; // Import AdminDashboard component
 import Home from './components/home';
 import Navbar from './components/Navbar';
+import CartPage from './components/CartPage';
 import Accessories from './components/Accessories';
 import ElectricBikeList from './components/ElectricBikeList';
 import BikeDetails from './components/BikeDetails';
@@ -21,16 +23,21 @@ import BikeLightsList from './components/BikeLightsList';
 import BikeReflectorsList from './components/BikeReflectorsList';
 
 const App = () => {
-  const [isAdmin, setIsAdmin] = useState(false); // State to track admin status
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [cartItems, setCartItems] = useState([]); // State for cart items
+
+  // Calculate cart item count
+  const cartItemCount = cartItems.reduce((count, item) => count + item.quantity, 0);
 
   // Function to set admin status after successful admin login
   const handleAdminLogin = () => {
-    // Set isAdmin to true after successful admin login
     setIsAdmin(true);
   };
-
+  
   return (
+ <CartProvider>
     <Router>
+      <Navbar isAdmin={isAdmin} cartItemCount={cartItemCount} />
       <Routes>
         {/* Redirect root path to home */}
         <Route path="/" element={<Navigate to="/home" />} />
@@ -51,12 +58,14 @@ const App = () => {
         <Route path="/bikelocks" element={<BikeLocksList />} />
         <Route path="/bikelocks/:id" element={<BikeLocksDetails />} />
         <Route path="/bikereflectors" element={<BikeReflectorsList />} />
+        <Route path="/cart" element={<CartPage cartItems={cartItems} />} />
       </Routes>
       {/* Navbar is always displayed */}
       {/* Pass isAdmin prop to the Navbar component */}
       <Navbar isAdmin={isAdmin} />
       <Footer />
     </Router>
+ </CartProvider>
   );
 }
 
