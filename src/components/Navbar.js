@@ -1,12 +1,14 @@
-// Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-const Navbar = ({ isAdmin }) => {
+const Navbar = ({ isAdmin, cartItemCount }) => {
   return (
     <header className="navbar-header">
       <Link to="/home" className="brand-logo">Roberts & Forde Cycles</Link>
-      <div className="nav-container">
+      <nav className="nav-container">
+        {/* Centered links for Bikes and Accessories */}
         <ul className="nav-links">
           <li className="nav-item">
             <Link to="/bikes" className="nav-link">Bikes</Link>
@@ -14,22 +16,32 @@ const Navbar = ({ isAdmin }) => {
           <li className="nav-item">
             <Link to="/accessories" className="nav-link">Accessories</Link>
           </li>
-          {/* Display Admin Dashboard link only for admins */}
+        </ul>
+
+        {/* Right-aligned items for admin, register, and cart */}
+        <ul className="nav-links right-items">
           {isAdmin && (
             <li className="nav-item">
               <Link to="/admindashboard" className="nav-link">Admin Dashboard</Link>
             </li>
           )}
-        </ul>
-        <ul className="nav-links register-items">
           <li className="nav-item">
             <Link to="/admin" className="nav-link">Admin Login</Link>
           </li>
           <li className="nav-item">
             <Link to="/register" className="nav-link">Register</Link>
           </li>
+          {/* Cart Button */}
+          <li className="nav-item">
+            <Link to="/cart" className="nav-link">
+            <FontAwesomeIcon icon={faShoppingCart} />
+            {cartItemCount > 0 && (
+              <span className="cart-count">{cartItemCount}</span>
+            )}
+          </Link>
+          </li>
         </ul>
-      </div>
+      </nav>
     </header>
   );
 };
