@@ -19,7 +19,7 @@ import BikeLocksDetails from './components/BikeLocksDetails';
 import BikeLightsDetails from './components/BikeLightsDetails';
 import BikeLightsList from './components/BikeLightsList';
 import BikeReflectorsList from './components/BikeReflectorsList';
-
+import CheckoutPage from './components/CheckoutPage';
 const App = () => {
   const [isAdmin, setIsAdmin] = useState(false); // State to track admin status
 
@@ -45,12 +45,16 @@ const App = () => {
         <Route path="/kidsbikes/:id" element={<KidsBikeDetails />} />
         <Route path="/accessories" element={<Accessories />} /> 
         <Route path="/mountainbikes" element={<MountainBikeList />} />
+        <Route path="/mountainbikes/:id" element={<MountainBikeDetails />} />
         <Route path="/womensbikes" element={<WomensBikeList />} />
+        <Route path="/womensbikes/:id" element={<WomensBikeDetails />} />
         <Route path="/bikelights" element={<BikeLightsList />} />
         <Route path="/bikelights/:id" element={<BikeLightsDetails />} />
         <Route path="/bikelocks" element={<BikeLocksList />} />
         <Route path="/bikelocks/:id" element={<BikeLocksDetails />} />
         <Route path="/bikereflectors" element={<BikeReflectorsList />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+
       </Routes>
       {/* Navbar is always displayed */}
       {/* Pass isAdmin prop to the Navbar component */}

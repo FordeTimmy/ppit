@@ -28,6 +28,10 @@ const Navbar = ({ isAdmin }) => {
           <li className="nav-item">
             <Link to="/register" className="nav-link">Register</Link>
           </li>
+          {/* Add checkout button */}
+          <li className="nav-item">
+            <Link to="/checkout" className="nav-link checkout-button">Checkout</Link>
+          </li>
         </ul>
       </div>
     </header>
