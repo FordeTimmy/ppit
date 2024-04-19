@@ -1,19 +1,16 @@
+// QuickView.js
 import React, { useState } from 'react';
-import './QuickView.css'; // Make sure the styles are defined properly
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import './QuickView.css';
 
 const QuickView = ({ product, onClose, addToCart }) => {
   const [showAddedMessage, setShowAddedMessage] = useState(false);
 
   const handleAddToCart = () => {
-    if (addToCart) {
-      addToCart(product);
-      setShowAddedMessage(true);
-      setTimeout(() => {
-        setShowAddedMessage(false);
-      }, 2000); // Dismiss the message after 2 seconds
-    }
+    addToCart(product);
+    setShowAddedMessage(true);
+    setTimeout(() => {
+      setShowAddedMessage(false);
+    }, 2000); // Dismiss the message after 2 seconds
   };
 
   return (

@@ -1,13 +1,14 @@
+// ElectricBikesList.js
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, query, where, getDocs } from "firebase/firestore";
 import QuickView from './QuickView';
+import { useCart } from './CartContext';
 
 const ElectricBikesList = () => {
     const [electricBikes, setElectricBikes] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
-    // Initialize cart as an empty array
-    const [cart, setCart] = useState([]);
+    const { addToCart } = useCart();  // Use the addToCart from the context
 
     useEffect(() => {
         const fetchBikes = async () => {
@@ -26,26 +27,6 @@ const ElectricBikesList = () => {
     const closeQuickView = () => {
         setSelectedProduct(null);
     };
-    const addToCart = (product) => {
-      console.log('Adding to cart:', product.title); // Debug: log product being added
-  
-      const existingProduct = cart.find((item) => item.id === product.id);
-      if (existingProduct) {
-          // If the product exists, increase the quantity
-          const updatedCart = cart.map((item) =>
-              item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
-          );
-          setCart(updatedCart);
-          console.log('Cart updated with increased quantity:', updatedCart); // Debug: log updated cart
-      } else {
-          // If the product doesn't exist, add it with a quantity of 1
-          const updatedCart = [...cart, { ...product, quantity: 1 }];
-          setCart(updatedCart);
-          console.log('Cart updated with new product:', updatedCart); // Debug: log updated cart
-      }
-  };
-  
-  
 
     return (
         <div>
