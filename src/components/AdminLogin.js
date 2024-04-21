@@ -14,19 +14,27 @@ function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
   const handleLogin = async () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      // Login successful
       console.log("Login successful", userCredential);
-      console.log("Navigating to home page...");
-      // Call handleAdminLogin to set isAdmin to true
-      handleAdminLogin();
-      // Redirect to home after successful login
-      navigate('/home');
+  
+      // Check if the user has the admin custom claim set.
+      userCredential.user.getIdTokenResult()
+        .then((idTokenResult) => {
+          if (!!idTokenResult.claims.admin) {
+            // User is an admin.
+            handleAdminLogin(true);
+            navigate('/admindashboard'); // Redirect to admin dashboard.
+          } else {
+            // User is not an admin.
+            handleAdminLogin(false);
+            setErrorMessage('You are not authorized as an admin.');
+          }
+        });
     } catch (error) {
-      // Handle login error
       console.error("Login error:", error);
       setErrorMessage('Invalid email or password.');
     }
   };
+  
   
   return (
     <div>

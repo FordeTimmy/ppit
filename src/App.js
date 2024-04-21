@@ -25,10 +25,10 @@ import BikeReflectorsList from './components/BikeReflectorsList';
 import CheckoutPage from './components/CheckoutPage';
 
 const App = () => {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
 
   const handleAdminLogin = (adminStatus) => {
-    setIsAdmin(adminStatus);
+    setIsAdmin(true);
   };
 
   return (
