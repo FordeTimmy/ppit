@@ -1,9 +1,9 @@
 import React from 'react';
-
+import './CheckoutPage.css';
 const CartItem = ({ item, updateQuantity, removeFromCart }) => {
   return (
     <div className="cart-item">
-      <img src={item.productImageUrl} alt={item.title} />
+      <img src={item.productImageUrl} alt={item.title} className="cart-item-image" />
       <h3>{item.title}</h3>
       <p>€{item.price}</p>
       <input
