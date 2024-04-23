@@ -56,6 +56,7 @@ const App = () => {
           <Route path="/bikereflectors" element={<BikeReflectorsList />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
+          
           {/* Define other routes as needed */}
         </Routes>
         <Footer />
