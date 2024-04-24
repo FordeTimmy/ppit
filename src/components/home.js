@@ -7,12 +7,20 @@ import eBikeImage from '../images/E-bike.jpg';
 import kidsBikeImage from '../images/Kids-bike.jpg';
 import mountainBikeImage from '../images/MountainBike.jpg'; // Ensure this image is in your images directory
 import womensBikeImage from '../images/WomensBike.jpg'; // Import the Women's Bike image
+import SaleImage from '../images/Sale.png';
+import DiscountImage from '../images/Discount.png';
 import Navbar from './Navbar';
 
 const Home = () => {
   return (
     <div className="home-page-container">
       <Navbar /> {/* Include the Navbar component */}
+
+      <div className="fake-sales-banner left-banner">
+  <img src={SaleImage} alt="Sale Icon" />
+  <span>Sale: Get up to 50% off!</span>
+</div>
+
      
       <div className="product-list">
         <ProductItem
@@ -37,6 +45,10 @@ const Home = () => {
         />
         {/* You can continue adding more ProductItem components here for additional bike categories */}
       </div>
+      <div className="fake-sales-banner right-banner">
+  <span>Don't miss out! Huge discount on selected items!</span>
+  <img src={DiscountImage} alt="Discount Icon" />
+</div>
     </div>
   );
 }

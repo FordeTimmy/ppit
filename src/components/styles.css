@@ -112,24 +112,44 @@ a, button, input {
 .home-page-container {
   padding-top: 100px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
   gap: 20px;
 }
 
+.left-banner, .right-banner {
+  width: 150px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.left-banner {
+  background-color: #ff6347;
+}
+
+.right-banner {
+  background-color: #4682b4;
+}
+
 .product-list {
+  flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  margin: 0 auto;
   max-width: 1200px;
   margin-bottom: 120px;
 }
 
 .product-item {
-  width: calc(50% - 40px); /* Adjust the width for 2 items per row considering 20px gap on each side */
-  height: auto; /* Set height to auto to maintain aspect ratio */
+  width: calc(50% - 40px);
+  height: auto;
   position: relative;
   margin: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -177,7 +197,7 @@ a, button, input {
 }
 
 .product-info h2 {
-  margin-bottom:0px;
+  margin-bottom: 0px;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
@@ -203,12 +223,15 @@ a, button, input {
 
 @media (max-width: 1199px) and (min-width: 768px) {
   .product-item {
-    width: calc(50% - 40px); /* Keep the same width for medium-sized screens */
+    width: calc(50% - 40px);
   }
 }
 
 @media (max-width: 767px) {
   .product-item {
-    width: calc(100% - 40px); /* Full width for small screens minus the gap */
+    width: calc(100% - 40px);
+  }
+  .left-banner, .right-banner {
+    display: none;
   }
 }
