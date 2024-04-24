@@ -125,10 +125,11 @@ a, button, input {
   margin: 0 auto;
   max-width: 1200px;
   margin-bottom: 120px;
-  
 }
 
 .product-item {
+  width: calc(50% - 40px); /* Adjust the width for 2 items per row considering 20px gap on each side */
+  height: auto; /* Set height to auto to maintain aspect ratio */
   position: relative;
   margin: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -200,23 +201,14 @@ a, button, input {
   background-color: #66a344;
 }
 
-@media (min-width: 1200px) {
-  .product-item {
-    width: calc(50% - 20px);
-    height: 300px;
-  }
-}
-
 @media (max-width: 1199px) and (min-width: 768px) {
   .product-item {
-    width: calc(50% - 20px);
-    height: 250px;
+    width: calc(50% - 40px); /* Keep the same width for medium-sized screens */
   }
 }
 
 @media (max-width: 767px) {
   .product-item {
-    width: calc(100% - 20px);
-    height: 200px;
+    width: calc(100% - 40px); /* Full width for small screens minus the gap */
   }
 }
