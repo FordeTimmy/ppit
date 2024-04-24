@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './CheckoutPage.css';
 import { useLocation } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CartItem from './CartItem'; // Import the CartItem component
+import './CheckoutPage.css';
+import { collection, doc, updateDoc } from 'firebase/firestore';
+import { db } from '../firebase';
 
 const CheckoutPage = () => {
   const [fullName, setFullName] = useState('');
@@ -16,7 +18,6 @@ const CheckoutPage = () => {
   const [cvv, setCvv] = useState('');
   const [cartItems, setCartItems] = useState([]);
   const [stripePromise, setStripePromise] = useState(null); // Initialize stripePromise state
-  
   const location = useLocation();
 
   useEffect(() => {
@@ -74,6 +75,32 @@ const CheckoutPage = () => {
     }
   };
 
+  const updateQuantity = async (itemId, newQuantity) => {
+    setCartItems(currentItems =>
+      currentItems.map(item =>
+        item.id === itemId ? { ...item, quantity: newQuantity } : item
+      )
+    );
+    try {
+      const itemRef = doc(db, 'products', itemId);
+      await updateDoc(itemRef, { quantity: newQuantity });
+      console.log('Quantity updated successfully');
+    } catch (error) {
+      console.error('Error updating quantity:', error);
+    }
+  };
+
+  const removeFromCart = async (itemId) => {
+    setCartItems(currentItems => currentItems.filter(item => item.id !== itemId));
+    try {
+      const itemRef = doc(db, 'products', itemId);
+      await updateDoc(itemRef, { inCart: false });
+      console.log('Item removed from cart successfully');
+    } catch (error) {
+      console.error('Error removing item from cart:', error);
+    }
+  };
+
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
@@ -101,8 +128,8 @@ const CheckoutPage = () => {
                 <CartItem
                   key={index}
                   item={item}
-                  updateQuantity={() => {}} // Dummy function for consistency
-                  removeFromCart={() => {}} // Dummy function for consistency
+                  updateQuantity={updateQuantity}
+                  removeFromCart={removeFromCart}
                 />
               ))}
             </ul>
