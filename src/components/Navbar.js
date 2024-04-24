@@ -11,7 +11,7 @@ const Navbar = ({ isAdmin, cartItemCount }) => {
         {/* Centered links for Bikes and Accessories */}
         <ul className="nav-links">
           <li className="nav-item">
-            <Link to="/bikes" className="nav-link">Bikes</Link>
+            <Link to="/Bikes" className="nav-link">Bikes</Link>
           </li>
           <li className="nav-item">
             <Link to="/accessories" className="nav-link">Accessories</Link>

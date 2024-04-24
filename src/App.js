@@ -23,7 +23,7 @@ import BikeLightsList from './components/BikeLightsList';
 import BikeLightsDetails from './components/BikeLightsDetails';
 import BikeReflectorsList from './components/BikeReflectorsList';
 import CheckoutPage from './components/CheckoutPage';
-
+import Bikes from './components/Bikes';
 const App = () => {
   const [isAdmin, setIsAdmin] = useState(true);
 
@@ -56,7 +56,7 @@ const App = () => {
           <Route path="/bikereflectors" element={<BikeReflectorsList />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
-          
+          <Route path="/bikes" element={<Bikes />} />
           {/* Define other routes as needed */}
         </Routes>
         <Footer />

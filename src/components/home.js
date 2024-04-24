@@ -9,6 +9,8 @@ import mountainBikeImage from '../images/MountainBike.jpg'; // Ensure this image
 import womensBikeImage from '../images/WomensBike.jpg'; // Import the Women's Bike image
 import SaleImage from '../images/Sale.png';
 import DiscountImage from '../images/Discount.png';
+import bikeLightsImage from '../images/BikeLights.jpg';
+import bikeLocksImage from '../images/BikeLock.jpg';
 import Navbar from './Navbar';
 
 const Home = () => {
@@ -23,10 +25,10 @@ const Home = () => {
 
      
       <div className="product-list">
-        <ProductItem
-          title="Electric Bikes"
-          imageUrl={eBikeImage}
-          linkUrl="/Electricbikes" // Link to the Electricbikes page
+      <ProductItem
+          title="Bike Locks"
+          imageUrl={bikeLocksImage}
+          linkUrl="/bikelocks" // Link to the Bike Locks page
         />
         <ProductItem
           title="Kids Bikes"
@@ -34,9 +36,9 @@ const Home = () => {
           linkUrl="/Kidsbikes" // Link to the Kidsbikes page
         />
         <ProductItem
-          title="Mountain Bikes"
-          imageUrl={mountainBikeImage}
-          linkUrl="/MountainBikes" // Link to the Mountainbikes page
+          title="Bike Lights"
+          imageUrl={bikeLightsImage}
+          linkUrl="/bikelights" // Link to the Bike Lights page
         />
         <ProductItem
           title="Women's Bikes"
