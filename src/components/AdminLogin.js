@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './adminLogin.css'; // Rename the CSS file to adminLogin.css
 import BikeLogo from '../images/BikeLogo.png';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase';
-
+import "./adminLogin.css"
 function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

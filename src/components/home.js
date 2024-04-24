@@ -3,9 +3,7 @@ import ProductItem from './ProductItem';
 import './styles.css';
 
 // Import images
-import eBikeImage from '../images/E-bike.jpg';
 import kidsBikeImage from '../images/Kids-bike.jpg';
-import mountainBikeImage from '../images/MountainBike.jpg'; // Ensure this image is in your images directory
 import womensBikeImage from '../images/WomensBike.jpg'; // Import the Women's Bike image
 import SaleImage from '../images/Sale.png';
 import DiscountImage from '../images/Discount.png';
