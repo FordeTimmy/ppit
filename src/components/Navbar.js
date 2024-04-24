@@ -43,7 +43,6 @@ const Navbar = ({ isAdmin, handleLogout }) => {
           <li className="nav-item">
             <Link to="/cart" className="nav-link">
               <FontAwesomeIcon icon={faShoppingCart} />
-              <span className="cart-count">0</span>
             </Link>
           </li>
         </ul>
