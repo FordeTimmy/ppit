@@ -11,7 +11,7 @@ function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleLogin = async (isAdmin) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log("Login successful", userCredential);
@@ -19,12 +19,16 @@ function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
       // Check if the user has the admin custom claim set.
       userCredential.user.getIdTokenResult()
         .then((idTokenResult) => {
-          if (!!idTokenResult.claims.admin) {
-            // User is an admin.
+          if (!!idTokenResult.claims.admin && isAdmin) {
+            // User is an admin and wants to log in as admin.
             handleAdminLogin(true);
-            navigate('/admindashboard'); // Redirect to admin dashboard.
+            navigate('/AdminDashboard'); // Redirect to admin dashboard.
+          } else if (!isAdmin) {
+            // User is not an admin and wants to log in as a regular user.
+            handleAdminLogin(false);
+            navigate('/'); // Redirect to regular user page.
           } else {
-            // User is not an admin.
+            // User is not an admin and tries to log in as admin.
             handleAdminLogin(false);
             setErrorMessage('You are not authorized as an admin.');
           }
@@ -34,6 +38,7 @@ function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
       setErrorMessage('Invalid email or password.');
     }
   };
+  
   
   
   return (
@@ -58,7 +63,8 @@ function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
           onChange={(e) => setPassword(e.target.value)} // Update the password state based on user input
         />
       </div>
-      <button onClick={handleLogin}>Login</button> {/* Call handleLogin when the "Login" button is clicked */}
+      <button onClick={() => handleLogin(false)}>Login as User</button>
+      <button onClick={() => handleLogin(true)}>Login as Admin</button>
       {errorMessage && <p>{errorMessage}</p>} {/* Display the error message if any */}
     </div>
   );

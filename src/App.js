@@ -24,12 +24,15 @@ import BikeLightsDetails from './components/BikeLightsDetails';
 import BikeReflectorsList from './components/BikeReflectorsList';
 import CheckoutPage from './components/CheckoutPage';
 import Bikes from './components/Bikes';
+import SignUp from './components/SignUp';
 const App = () => {
-  const [isAdmin, setIsAdmin] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false); // Initialize isAdmin to false
+
 
   const handleAdminLogin = (adminStatus) => {
-    setIsAdmin(true);
+    setIsAdmin(adminStatus); // Update isAdmin based on adminStatus
   };
+  
 
   return (
     <CartProvider>
@@ -57,6 +60,7 @@ const App = () => {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/bikes" element={<Bikes />} />
+          <Route path="/signUp" element={<SignUp />} />
           {/* Define other routes as needed */}
         </Routes>
         <Footer />

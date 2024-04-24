@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Make sure to import useNavigate
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 import { collection, addDoc, Timestamp } from "firebase/firestore"; // Import Timestamp for your time field
 import './AdminDashboard.css';
@@ -14,7 +14,7 @@ const categoryList = [
     { name: 'Reflectors' }
 ];
 
-const AddProductPage = () => {
+const AddProductPage = ({ isAdmin }) => {
     const navigate = useNavigate(); // Use navigate for redirecting after adding product
 
     const [product, setProduct] = useState({
@@ -27,6 +27,12 @@ const AddProductPage = () => {
         time: Timestamp.now(), // Use Timestamp from Firestore
         date: new Date().toLocaleString("en-US", { month: "short", day: "2-digit", year: "numeric" })
     });
+
+    useEffect(() => {
+        if (!isAdmin) {
+            navigate('/'); // Redirect to regular user page if not an admin
+        }
+    }, [isAdmin, navigate]);
 
     const addProductFunction = async () => {
         if (!product.title || !product.price || !product.productImageUrl || !product.category || !product.description) {
