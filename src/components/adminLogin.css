@@ -1,106 +1,129 @@
-/* Login.css */
-.container {
-    position: relative;
-}
-
-.container::before,
-.container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 10px; 
-}
-
-.container::before {
-    left: 0;
-}
-
-.container::after {
-    right: 0;
-}
+/* AdminLogin.css */
 
 body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
-    
-    color: #000; /* Set font color to black */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo-container {
-    position: absolute;
-    top: 10px; /* Adjust top position */
-    left: 10px; /* Adjust left position */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .logo {
-    width: 50px; /* Adjust logo width */
+    width: 120px;
     height: auto;
 }
 
 .login-container {
-    position: relative;
-    width: 300px;
-    margin: auto; /* Center the login form horizontally */
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #fff; /* Set background color for the login container */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-}
-
-.login-content {
-    position: relative;
-    z-index: 1; /* Ensure the content is above the strips */
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 .login-heading {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
     text-align: center;
-    color: #333; /* Set color for the login heading */
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 1rem;
 }
 
-.form-control {
-    width: 100%; /* Adjust width to accommodate sidebars */
-    padding: 10px;
+.input-field {
+    width: 100%;
+    padding: 10px 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
-.button-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.btn {
-    padding: 10px 20px;
+.submit-button {
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Add transition for smooth hover effect */
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: background-color 0.2s;
 }
 
-.btn-primary {
-    background-color: #3498db; /* Set background color for primary button */
-    color: #fff; /* Set text color for primary button */
-}
-
-.btn-secondary {
-    background-color: #6c757d;
-    color: #fff; /* Set text color for secondary button */
-}
-
-.btn:hover {
-    background-color: #217dbb; /* Change background color on hover */
+.submit-button:hover {
+    background-color: #43a047;
 }
 
 .error-message {
     color: #dc3545;
-    margin-top: 10px;
+    margin-top: 15px;
+    text-align: center;
+}
+
+
+.login-container {
+    position: relative;
+    width: 400px; /* Adjust as needed */
+    margin: auto;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-field {
+    width: 100%; /* Full width of the login-container */
+    max-width: 360px; /* Or any other max-width */
+    padding: 15px;
+    margin: 10px 0; /* Add some vertical spacing */
+    font-size: 1.2rem; /* Larger font size */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-button {
+    width: calc(100% - 30px); /* Full width minus padding */
+    max-width: 360px; /* Matching max-width of input fields */
+    padding: 15px;
+    margin-top: 20px; /* More space above the button */
+    font-size: 1.2rem; /* Larger font size */
+    /* ... Other styles ... */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 30px;
+    }
 }

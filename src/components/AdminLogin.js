@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './adminLogin.css'; // Rename the CSS file to adminLogin.css
+
 import BikeLogo from '../images/BikeLogo.png';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase';
+import './AdminLogin.css';
 
 function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
   const [email, setEmail] = useState('');
@@ -43,32 +44,39 @@ function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
   };
   
   return (
-    <div>
-      <div className="logo-container"> {/* Add a div for logo container */}
+    <div className="login-container">
+      <div className="logo-container">
         <img src={BikeLogo} alt="Bike Logo" className="logo" />
       </div>
-      <h2>Login</h2>
-      <div>
+      <h2 className="login-heading">Login</h2>
+      <div className="form-group">
         <label>Email:</label>
         <input
           type="text"
           value={email}
-          onChange={(e) => setEmail(e.target.value)} // Update the email state based on user input
+          className="input-field"
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <div>
+      <div className="form-group">
         <label>Password:</label>
         <input
           type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)} // Update the password state based on user input
+          className="input-field"
+          onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <button onClick={() => handleLogin(false)}>Login as User</button>
-      <button onClick={() => handleLogin(true)}>Login as Admin</button>
-      {errorMessage && <p>{errorMessage}</p>} {/* Display the error message if any */}
+      <button onClick={() => handleLogin(false)} className="submit-button">
+        Login as User
+      </button>
+      <button onClick={() => handleLogin(true)} className="submit-button">
+        Login as Admin
+      </button>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
   );
+  
 }
 
 export default AdminLogin;
