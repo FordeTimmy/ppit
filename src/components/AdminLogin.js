@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './adminLogin.css'; // Rename the CSS file to adminLogin.css
 import BikeLogo from '../images/BikeLogo.png';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase';
 
 function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
@@ -15,20 +15,23 @@ function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log("Login successful", userCredential);
-  
+
       // Check if the user has the admin custom claim set.
       userCredential.user.getIdTokenResult()
         .then((idTokenResult) => {
           if (!!idTokenResult.claims.admin && isAdmin) {
             // User is an admin and wants to log in as admin.
+            console.log("User is logged in as admin");
             handleAdminLogin(true);
-            navigate('/AdminDashboard'); // Redirect to admin dashboard.
+            navigate('/admin-dashboard'); // Redirect to admin dashboard.
           } else if (!isAdmin) {
             // User is not an admin and wants to log in as a regular user.
+            console.log("User is logged in as a regular user");
             handleAdminLogin(false);
             navigate('/'); // Redirect to regular user page.
           } else {
             // User is not an admin and tries to log in as admin.
+            console.log("User is not authorized as an admin");
             handleAdminLogin(false);
             setErrorMessage('You are not authorized as an admin.');
           }
@@ -38,8 +41,6 @@ function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
       setErrorMessage('Invalid email or password.');
     }
   };
-  
-  
   
   return (
     <div>

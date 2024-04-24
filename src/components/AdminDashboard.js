@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
-import { collection, addDoc, Timestamp } from "firebase/firestore"; // Import Timestamp for your time field
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 import './AdminDashboard.css';
 
 const categoryList = [
@@ -14,8 +14,15 @@ const categoryList = [
     { name: 'Reflectors' }
 ];
 
-const AddProductPage = ({ isAdmin }) => {
-    const navigate = useNavigate(); // Use navigate for redirecting after adding product
+const AdminDashboard = ({ isAdmin }) => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!isAdmin) {
+            console.log("Redirecting to /");
+            navigate('/');
+        }
+    }, [isAdmin, navigate]);
 
     const [product, setProduct] = useState({
         title: "",
@@ -24,30 +31,25 @@ const AddProductPage = ({ isAdmin }) => {
         category: "",
         description: "",
         quantity: 1,
-        time: Timestamp.now(), // Use Timestamp from Firestore
+        time: Timestamp.now(),
         date: new Date().toLocaleString("en-US", { month: "short", day: "2-digit", year: "numeric" })
     });
 
-    useEffect(() => {
-        if (!isAdmin) {
-            navigate('/'); // Redirect to regular user page if not an admin
-        }
-    }, [isAdmin, navigate]);
-
     const addProductFunction = async () => {
         if (!product.title || !product.price || !product.productImageUrl || !product.category || !product.description) {
-            alert("All fields are required."); // Use alert for basic error handling
+            alert("All fields are required.");
             return;
         }
 
         try {
             const productRef = collection(db, 'products');
             await addDoc(productRef, product);
-            alert("Product added successfully"); // Use alert for basic success message
-            navigate('/admin-dashboard'); // Navigate to the admin dashboard
+            alert("Product added successfully");
+            console.log("Navigating to /admin-dashboard");
+            navigate('/admin-dashboard');
         } catch (error) {
             console.error(error);
-            alert("Adding product failed."); // Use alert for basic error message
+            alert("Adding product failed.");
         }
     };
 
@@ -71,4 +73,4 @@ const AddProductPage = ({ isAdmin }) => {
     );
 }
 
-export default AddProductPage;
+export default AdminDashboard;

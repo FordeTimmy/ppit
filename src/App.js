@@ -1,10 +1,9 @@
-// App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { CartProvider } from './components/CartContext';
 import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
-import Home from './components/home';
+import Home from './components/Home';
 import Navbar from './components/Navbar';
 import CartPage from './components/CartPage';
 import Accessories from './components/Accessories';
@@ -25,24 +24,29 @@ import BikeReflectorsList from './components/BikeReflectorsList';
 import CheckoutPage from './components/CheckoutPage';
 import Bikes from './components/Bikes';
 import SignUp from './components/SignUp';
-const App = () => {
-  const [isAdmin, setIsAdmin] = useState(false); // Initialize isAdmin to false
 
+const App = () => {
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const handleAdminLogin = (adminStatus) => {
-    setIsAdmin(adminStatus); // Update isAdmin based on adminStatus
+    console.log("Admin status:", adminStatus);
+    setIsAdmin(adminStatus);
+    console.log("isAdmin state updated:", isAdmin);
   };
   
+  const handleLogout = () => {
+    setIsAdmin(false);
+  };
 
   return (
     <CartProvider>
       <Router>
-        <Navbar isAdmin={isAdmin} />
+        <Navbar isAdmin={isAdmin} handleLogout={handleLogout} />
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/admin" element={<AdminLogin handleAdminLogin={handleAdminLogin} />} />
-          <Route path="/admindashboard" element={isAdmin ? <AdminDashboard /> : <Navigate to="/home" />} />
+          <Route path="/admin-dashboard" element={isAdmin ? <AdminDashboard isAdmin={isAdmin} /> : <Navigate to="/home" />} />
           <Route path="/electricbikes" element={<ElectricBikeList />} />
           <Route path="/electricbikes/:id" element={<BikeDetails />} />
           <Route path="/kidsbikes" element={<KidsBikeList />} />
@@ -61,7 +65,6 @@ const App = () => {
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/bikes" element={<Bikes />} />
           <Route path="/signUp" element={<SignUp />} />
-          {/* Define other routes as needed */}
         </Routes>
         <Footer />
       </Router>

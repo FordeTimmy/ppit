@@ -1,6 +1,6 @@
 // Footer.js
 import React from 'react';
-import './Footer.css'; // Your footer CSS
+import './Footer.css'; 
 
 const Footer = () => {
   return (
@@ -28,7 +28,6 @@ const Footer = () => {
               <li><a href="#!"><i className="fab fa-facebook"></i> Facebook</a></li>
               <li><a href="#!"><i className="fab fa-twitter"></i> Twitter</a></li>
               <li><a href="#!"><i className="fab fa-instagram"></i> Instagram</a></li>
-              // Add more social links here
             </ul>
           </div>
         </div>
