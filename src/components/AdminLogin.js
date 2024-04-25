@@ -44,6 +44,7 @@ function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
   };
   
   return (
+    <div className='home-page-container'>
     <div className="login-container">
       <div className="logo-container">
         <img src={BikeLogo} alt="Bike Logo" className="logo" />
@@ -71,6 +72,7 @@ function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
         Login as Admin
       </button>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
+    </div>
     </div>
   );
   

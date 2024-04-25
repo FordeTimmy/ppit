@@ -16,6 +16,7 @@ const WomensBikeDetails = () => {
   }, [id]);
 
   return (
+    
     <div className="bike-details-container">
       {bike ? (
         <>

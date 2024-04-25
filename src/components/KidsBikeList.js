@@ -4,6 +4,8 @@ import { db } from '../firebase';
 import { collection, query, where, getDocs } from "firebase/firestore";
 import QuickView from './QuickView';
 import './ElectricBikeList.css'; // Assuming you have a CSS file for KidsBikeList
+import './Footer.css';
+import './styles.css';
 import { useCart } from './CartContext'; // Import useCart hook
 
 const KidsBikeList = () => {
@@ -30,7 +32,8 @@ const KidsBikeList = () => {
     };
 
     return (
-        <div>
+        <div className='home-page-container'>
+            <div>
             <h2>Kids Bikes</h2>
             <div className="bike-list">
                 {kidsBikes.map(bike => (
@@ -47,6 +50,7 @@ const KidsBikeList = () => {
             {selectedProduct && (
                 <QuickView product={selectedProduct} onClose={closeQuickView} addToCart={addToCart} />
             )}
+        </div>
         </div>
     );
 };

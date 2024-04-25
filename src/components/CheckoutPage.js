@@ -128,6 +128,7 @@ const CheckoutPage = () => {
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
+    <div className='home-page-container'>
     <div className="checkout-container">
       <h2 className="checkout-heading">Checkout</h2>
       <div className="checkout-body">
@@ -159,6 +160,7 @@ const CheckoutPage = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

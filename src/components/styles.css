@@ -1,11 +1,13 @@
 body, html {
   margin: 0;
-  padding-top: 60px; /* Keeps top padding for the navbar */
+  padding: 0;
+  padding-top: 50px; /* adjusted to height of navbar-header */
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  height: 100%; /* Ensures that the body takes at least the full height of the viewport */
+  font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+  min-height: 100vh; /* Ensures that the body takes at least the full height of the viewport */
+  display: flex;
+  flex-direction: column;
 }
-
 .navbar-header {
   display: flex;
   align-items: center;
@@ -111,7 +113,8 @@ a, button, input {
 }
 
 .home-page-container {
-  padding-top: 100px;
+  padding-top: 20px; /* Adds spacing between navbar and content */
+  flex: 1 0 auto; /* Ensures content fills space between navbar and footer */
   display: flex;
   justify-content: center;
   align-items: flex-start;

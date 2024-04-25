@@ -33,6 +33,7 @@ const BikeLocksList = () => {
     };
 
     return (
+        <div className='home-page-container'>
         <div>
             <h2>Bike Locks</h2>
             <div className="bike-list">
@@ -50,6 +51,7 @@ const BikeLocksList = () => {
             {selectedProduct && (
                 <QuickView product={selectedProduct} onClose={closeQuickView} addToCart={addToCart} />
             )}
+        </div>
         </div>
     );
 };

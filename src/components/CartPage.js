@@ -14,6 +14,7 @@ const CartPage = () => {
   };
 
   return (
+    <div className='home-page-container'>
     <div>
       <h2>Cart</h2>
       {cartItems.length === 0 ? (
@@ -32,6 +33,7 @@ const CartPage = () => {
           <button onClick={handleCheckout}>Checkout</button>
         </>
       )}
+    </div>
     </div>
   );
 };

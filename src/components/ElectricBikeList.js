@@ -32,7 +32,8 @@ const ElectricBikesList = () => {
     };
 
     return (
-        <div>
+        <div className='home-page-container'>
+            <div>
             <h2>Electric Bikes</h2>
             <div className="bike-list">
                 {electricBikes.map(bike => (
@@ -49,6 +50,7 @@ const ElectricBikesList = () => {
             {selectedProduct && (
                 <QuickView product={selectedProduct} onClose={closeQuickView} addToCart={addToCart} />
             )}
+        </div>
         </div>
     );
 };

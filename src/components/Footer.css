@@ -1,59 +1,63 @@
-/* Footer.css */
-.site-footer {
-  background-color: #26272b;
-  padding: 25px 0; /* Reduced padding */
-  color: #737373;
-  font-size: 14px; /* Smaller font size */
-}
-
-.site-footer hr {
-  border-top-color: #bbb;
-  opacity: 0.5;
-  margin-top: 20px; /* You can adjust the margin-top as needed */
-}
-
-.site-footer h6 {
-  color: #fff;
-  font-size: 14px;
-  text-transform: uppercase;
-  margin-top: 0; /* Reduced margin-top */
-  letter-spacing: 1px;
-}
-
-.site-footer a {
-  color: #737373;
-  transition: color 0.2s;
-}
-
-.site-footer a:hover {
-  color: #3366cc;
-  text-decoration: none;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start; /* This ensures that items are aligned to the top */
-  gap: 20px; /* Adjust gap for spacing between footer items */
-}
-
-.footer-about,
-.footer-links,
-.footer-social {
-  flex: 1; /* Each child takes up equal space */
-  min-width: 160px; /* Ensures that they don't get too narrow when the screen size is small */
-}
-
-.footer-links ul,
-.footer-social-icons ul {
-  padding-left: 0;
-  list-style: none;
-}
-
-@media (max-width: 767px) {
-  .row {
-    flex-direction: column;
+  /* Footer.css */
+  .site-footer {
+    color: #737373;
+    font-size: 14px;
+    background-color: #26272b;
+    width: 100%;
+    flex-shrink: 0; /* Prevents footer from shrinking */
+    margin-top: auto; /* Pushes the footer to the bottom */
   }
-}
+  
 
-/* ...add more styling as needed */
+
+  .site-footer hr {
+    border-top-color: #bbb;
+    opacity: 0.5;
+    margin-top: 20px; /* You can adjust the margin-top as needed */
+  }
+
+  .site-footer h6 {
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 0; /* Reduced margin-top */
+    letter-spacing: 1px;
+  }
+
+  .site-footer a {
+    color: #737373;
+    transition: color 0.2s;
+  }
+
+  .site-footer a:hover {
+    color: #3366cc;
+    text-decoration: none;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; /* This ensures that items are aligned to the top */
+    gap: 20px; /* Adjust gap for spacing between footer items */
+  }
+
+  .footer-about,
+  .footer-links,
+  .footer-social {
+    flex: 1; /* Each child takes up equal space */
+    min-width: 160px; /* Ensures that they don't get too narrow when the screen size is small */
+  }
+
+  .footer-links ul,
+  .footer-social-icons ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  @media (max-width: 767px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+
+  /* ...add more styling as needed */
