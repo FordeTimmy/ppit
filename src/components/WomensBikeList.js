@@ -4,19 +4,18 @@ import { db } from '../firebase'; // Ensure this points to your firebase config 
 import { collection, query, where, getDocs } from "firebase/firestore";
 import QuickView from './QuickView';
 import { useCart } from './CartContext';
-import './ElectricBikeList.css'; // Use ElectricBikeList CSS for consistency
+import './ElectricBikeList.css'; // Shared CSS for consistency
 
 const WomensBikeList = () => {
-    const [womensBikes, setWomensBikes] = useState([]);
+    const [bikes, setBikes] = useState([]); // renamed to 'bikes' for consistency
     const [selectedProduct, setSelectedProduct] = useState(null);
     const { addToCart } = useCart();
 
     useEffect(() => {
         const fetchBikes = async () => {
-            // Update the query to match your "Women's Bikes" category in your Firestore
-            const bikesQuery = query(collection(db, "products"), where("category", "==", "Women's Bike"));
+            const bikesQuery = query(collection(db, "products"), where("category", "==", "Womens Bike"));
             const querySnapshot = await getDocs(bikesQuery);
-            setWomensBikes(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+            setBikes(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))); // renamed to 'setBikes'
         };
 
         fetchBikes();
@@ -35,7 +34,7 @@ const WomensBikeList = () => {
             <div>
                 <h2>Women's Bikes</h2>
                 <div className="bike-list">
-                    {womensBikes.map(bike => (
+                    {bikes.map(bike => ( // renamed to 'bikes' for consistency
                         <div className="bike-item" key={bike.id}>
                             <div className="bike-image-container">
                                 <img src={bike.productImageUrl} alt={bike.title} />
