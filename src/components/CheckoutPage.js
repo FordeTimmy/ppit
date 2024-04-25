@@ -37,7 +37,7 @@ const CheckoutPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     // Create an object with order details
     const orderDetails = {
       fullName,
@@ -47,7 +47,7 @@ const CheckoutPage = () => {
       postalCode,
       cartItems
     };
-
+  
     try {
       // Make a POST request to the backend to place the order and send email notification
       const response = await fetch('http://localhost:3000/place-order', {
@@ -57,12 +57,24 @@ const CheckoutPage = () => {
         },
         body: JSON.stringify(orderDetails)
       });
-
+  
       // Check if the request was successful
       if (response.ok) {
         // Order placed successfully
         console.log('Order placed successfully');
-        // Redirect or show a success message to the user
+        // Clear the form fields
+        setFullName('');
+        setEmail('');
+        setAddress('');
+        setCity('');
+        setPostalCode('');
+        setCardNumber('');
+        setExpiryDate('');
+        setCvv('');
+        // Clear the cart items
+        setCartItems([]);
+        // Show a confirmation message
+        alert('Your order has been placed. You will receive an email shortly.');
       } else {
         // Handle error response
         console.error('Error placing order:', response.statusText);
@@ -74,7 +86,7 @@ const CheckoutPage = () => {
       // Display an error message to the user
     }
   };
-
+  
   const updateQuantity = async (itemId, newQuantity) => {
     setCartItems(currentItems =>
       currentItems.map(item =>
