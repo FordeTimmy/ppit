@@ -1,8 +1,9 @@
 body, html {
   margin: 0;
-  padding-top: 60px;
+  padding-top: 60px; /* Keeps top padding for the navbar */
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100%; /* Ensures that the body takes at least the full height of the viewport */
 }
 
 .navbar-header {
@@ -115,6 +116,7 @@ a, button, input {
   justify-content: center;
   align-items: flex-start;
   gap: 20px;
+  min-height: calc(100vh - 160px); /* Adjusted to push the footer to the bottom */
 }
 
 .left-banner, .right-banner {
