@@ -28,7 +28,8 @@ const Navbar = ({ isAdmin, handleLogout }) => {
           )}
           {isAdmin ? (
             <li className="nav-item">
-              <button onClick={handleLogoutClick} className="nav-link">Logout</button>
+              <button onClick={handleLogoutClick} className="nav-link logout-button">Logout</button>
+
             </li>
           ) : (
             <>

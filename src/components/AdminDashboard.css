@@ -7,7 +7,7 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  color: white; /* Change text color to white */
+  color: #78C850;
 }
 
 /* Flex container for dashboard sections */
@@ -49,7 +49,7 @@ body, html {
 
 .product-item {
   background-color: #ffffff; /* Light background for product item */
-  color: #333; /* Dark text color for readability */
+  color: #78C850; /* Dark text color for readability */
   display: flex;
   justify-content: space-between;
   align-items: center;
