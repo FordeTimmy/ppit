@@ -30,7 +30,8 @@ const MountainBikeList = () => {
     };
 
     return (
-        <div>
+        <div className='home-page-container'>
+            <div>
             <h2>Mountain Bikes</h2>
             <div className="bike-list">
                 {mountainBikes.map(bike => (
@@ -51,6 +52,7 @@ const MountainBikeList = () => {
             {selectedProduct && (
                 <QuickView product={selectedProduct} onClose={closeQuickView} addToCart={addToCart} />
             )}
+        </div>
         </div>
     );
 };

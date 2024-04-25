@@ -247,3 +247,65 @@ a, button, input {
   /* Other styles you might want to add */
 }
 
+/* This will style the Stripe CardElement to match your input fields */
+.StripeElement {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px; /* Adjust as needed */
+  background-color: white;
+  display: block;
+}
+
+/* This hides the autofill suggestion box */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #000 !important;
+}
+
+/* Hide the CardElement's icon */
+.CardElement .__PrivateStripeElement .__PrivateStripeElement-icon {
+  display: none;
+}
+
+/* Styles for the button */
+.checkout-button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%; /* Optional: you can set a specific width */
+}
+
+.checkout-button:hover {
+  background-color: #45a049;
+}
+
+.checkout-container {
+  display: flex;
+  justify-content: space-between; /* This spaces out the form and the cart */
+  max-width: 1200px; /* Maximum width of the checkout container */
+  margin: auto; /* Centers the checkout container */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for aesthetics */
+}
+
+
+/* Responsive layout for smaller screens */
+@media (max-width: 767px) {
+  .checkout-container {
+    flex-direction: column;
+  }
+
+  .checkout-form,
+  .cart-container {
+    width: auto; /* Resets width */
+    margin-right: 0; /* Removes margin between form and cart */
+  }
+}
