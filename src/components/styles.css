@@ -237,3 +237,10 @@ a, button, input {
     display: none;
   }
 }
+.logout-button {
+  color: #ffffff; /* This is a dark color for the text */
+  background-color: transparent; /* Assuming you want no background */
+  border: none; /* Assuming you don't want a border */
+  /* Other styles you might want to add */
+}
+

@@ -44,7 +44,8 @@
   bottom: 0; /* Align the button to the bottom of the bike-item */
   left: 0;
   width: 100%; /* The button will span the full width of the bike-item */
-  padding: 0.5rem 0; /* Add padding at the top and bottom */
+  font-size: 0.9rem; /* Smaller font size */
+  padding: 10px; /* Adjust padding to make the button smaller */
   background-color: #000;
   color: #fff;
   border: none;

@@ -67,9 +67,6 @@ function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <button onClick={() => handleLogin(false)} className="submit-button">
-        Login as User
-      </button>
       <button onClick={() => handleLogin(true)} className="submit-button">
         Login as Admin
       </button>
