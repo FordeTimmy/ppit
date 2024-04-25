@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 import { collection, addDoc, getDocs, updateDoc, deleteDoc, doc, Timestamp } from 'firebase/firestore';
-import './AdminDashboard.css'; // Assuming this contains your custom styles
+import './AdminDashboard.css';
 
 const categoryList = [
     { name: 'Electric Bike' },
@@ -18,7 +18,6 @@ const AdminDashboard = ({ isAdmin }) => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(categoryList[0]?.name); // New state for selected category
 
   // Initial product form state
   const [productForm, setProductForm] = useState({
@@ -40,15 +39,10 @@ const AdminDashboard = ({ isAdmin }) => {
     }
   }, [isAdmin, navigate]);
 
+  // Fetch all products
   const fetchProducts = async () => {
-    try {
-      const querySnapshot = await getDocs(collection(db, 'products'));
-      const fetchedProducts = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      console.log('Fetched products:', fetchedProducts); // Check the fetched data
-      setProducts(fetchedProducts);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    }
+    const querySnapshot = await getDocs(collection(db, 'products'));
+    setProducts(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
   };
 
   const addProductFunction = async () => {
@@ -112,57 +106,26 @@ const AdminDashboard = ({ isAdmin }) => {
 
   return (
     <div className='flex justify-center items-center h-screen'>
-        <div className="login_Form">
+        <div className="login_Form bg-pink-50 px-8 py-6 border border-pink-100 rounded-xl shadow-md">
             <div className="mb-5">
-                <h2 className='text-center text-2xl font-bold'>Add Product</h2>
+                <h2 className='text-center text-2xl font-bold text-pink-500'>Add Product</h2>
             </div>
             <input type="text" name="title" value={productForm.title} onChange={e => setProductForm({ ...productForm, title: e.target.value })} placeholder='Product Title' className='input-field' />
             <input type="number" name="price" value={productForm.price} onChange={e => setProductForm({ ...productForm, price: e.target.value })} placeholder='Product Price' className='input-field' />
             <input type="text" name="productImageUrl" value={productForm.productImageUrl} onChange={e => setProductForm({ ...productForm, productImageUrl: e.target.value })} placeholder='Product Image Url' className='input-field' />
-            {/* Added category dropdown */}
             <select value={productForm.category} onChange={e => setProductForm({ ...productForm, category: e.target.value })} className="input-field">
                 <option disabled>Select Product Category</option>
                 {categoryList.map((value, index) => <option key={index} value={value.name}>{value.name}</option>)}
             </select>
-            {/* Rest of the form */}
             <textarea value={productForm.description} onChange={e => setProductForm({ ...productForm, description: e.target.value })} name="description" placeholder="Product Description" rows="5" className="input-field"></textarea>
             <button onClick={addProductFunction} type='button' className='submit-button'>Add Product</button>
         </div>
 
-        {/* Product list section */}
-        <div className="products-section">
-          {/* Category Dropdown */}
-          <div>
-            <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="input-field"
-            >
-              {categoryList.map((category, index) => (
-                <option key={index} value={category.name}>{category.name}</option>
-              ))}
-            </select>
-          </div>
-          {/* Filtered Product list */}
-          <h2 className="text-center text-2xl font-bold">Products</h2>
-          <ul className="product-list">
-            {products.filter(product => product.category === selectedCategory).map(product => (
-              <li key={product.id} className="product-item">
-                <span>{product.title}</span>
-                <div>
-                  <button onClick={() => editProduct(product)}>Edit</button>
-                  <button onClick={() => deleteProductFunction(product.id)}>Delete</button>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         {/* Edit Product Form */}
         {selectedProduct && (
-          <div className="login_Form">
+          <div className="login_Form bg-pink-50 px-8 py-6 border border-pink-100 rounded-xl shadow-md">
             <div className="mb-5">
-              <h2 className="text-center text-2xl font-bold">Edit Product</h2>
+              <h2 className="text-center text-2xl font-bold text-pink-500">Edit Product</h2>
             </div>
             <input
               type="text"
@@ -213,6 +176,20 @@ const AdminDashboard = ({ isAdmin }) => {
             </button>
           </div>
         )}
+
+        {/* Display products with edit and delete buttons */}
+        <div>
+          <h2 className="text-center text-2xl font-bold text-pink-500">Products</h2>
+          <ul>
+            {products.map(product => (
+              <li key={product.id}>
+                <p>{product.title}</p>
+                <button onClick={() => editProduct(product)}>Edit</button>
+                <button onClick={() => deleteProductFunction(product.id)}>Delete</button>
+              </li>
+            ))}
+          </ul>
+        </div>
     </div>
   );
 };
