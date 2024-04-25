@@ -1,108 +1,126 @@
 /* AdminDashboard.css */
 
 /* General styles */
-body, html {
+body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
   margin: 0;
   padding: 0;
-  height: 100%;
-  color: #78C850;
-}
-
-/* Flex container for dashboard sections */
-.flex {
   display: flex;
-  justify-content: center; /* Centers the children horizontally */
-  gap: 2rem; /* Space between the form and product list */
-  padding: 1rem;
-  min-height: calc(100vh - 120px); /* Adjust height for footer */
-  flex-wrap: wrap; /* Allows items to wrap as needed on smaller screens */
+  flex-direction: column; /* Use flex column to organize content in a column */
+  min-height: 100vh; /* Min height to ensure footer is at the bottom */
 }
 
-/* Styles for the add/edit product form */
-.login_Form {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex-basis: calc(50% - 1rem); /* Adjust width to account for gap */
-  overflow: hidden;
-}
-
-/* Styles for product list, will include scroll if content exceeds its max-height */
-.products-section {
-  flex-basis: calc(50% - 1rem); /* Adjust width to account for gap */
-  max-height: calc(100vh - 120px - 2rem); /* Adjust for header/footer */
-  overflow-y: auto; /* Only add scroll to product list */
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.flex {
+  flex: 1; /* Allows the container to grow and fill available space */
+  overflow-y: auto; /* Adds a scrollbar if content is taller than the screen */
+  padding-top: 50px; /* Add padding at the top to not stick to the header */
 }
 
 .product-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  max-height: calc(100vh - 160px); /* Adjust the height calculation as needed */
+  overflow-y: auto; /* Enables scrolling on overflow */
+  padding: 20px;
+  margin-bottom: 20px; /* Adds space before the footer */
 }
 
-.product-item {
-  background-color: #ffffff; /* Light background for product item */
-  color: #78C850; /* Dark text color for readability */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ddd; /* Subtle border */
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.product-item:last-child {
-  margin-bottom: 0;
-}
-
-/* Buttons for edit and delete */
-.product-item button {
-  margin-left: 10px;
-  color: #333;
-  background-color: #f8f8f8; /* Soft background color for buttons */
-  border: 1px solid #ddd; /* Subtle border for buttons */
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.product-item button:hover {
-  background-color: #e8e8e8; /* Hover color for buttons */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .flex {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .login_Form, .products-section {
-    width: 100%;
-    flex-basis: auto; /* Resets flex-basis for mobile */
-  }
-}
-
-/* Footer styles */
 .footer {
   background-color: #333;
   color: white;
   text-align: center;
   padding: 10px 20px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }
 
-/* Other existing styles */
+/* Login form styles */
+.login_Form {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px; /* Adjust the width of form as per your requirement */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-2xl {
+  font-size: 1.5rem; /* Adjust the font size as needed */
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-pink-500 {
+  color: #66a344; /* A shade of pink */
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Makes sure padding doesn't affect overall width */
+  font-size: 1rem;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #ec407a; /* Pink border for focus */
+  box-shadow: 0 0 0 2px rgba(236, 64, 122, 0.1); /* Soft glow */
+}
+
+.submit-button {
+  width: 100%;
+  background-color: #4caf50; /* Green background */
+  color: white;
+  padding: 14px 20px;
+  margin: 24px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s; /* Smooth transition for hover effect */
+}
+
+.submit-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login_Form {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+/* Additional styles */
+.footer a {
+  color: #59d;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #bdd;
+}
+
+.product-list {
+  flex-basis: 45%;
+  max-height: 400px; /* Adjust the maximum height as needed */
+  overflow-y: auto; /* Add scrollbar for vertical overflow */
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e1e5eb;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
