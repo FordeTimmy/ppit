@@ -1,32 +1,34 @@
 const express = require('express');
-const app = express();
-const port = 3000;
 const cors = require('cors');
-const firebaseAdmin = require('firebase-admin');
+const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
-require('dotenv').config(); // Load environment variables from .env file
+const firebaseAdmin = require('firebase-admin');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+require('dotenv').config();
 
 // Initialize Firebase Admin SDK
 try {
   const serviceAccount = require(process.env.FIREBASE_SERVICE_ACCOUNT_KEY_PATH);
   firebaseAdmin.initializeApp({
     credential: firebaseAdmin.credential.cert(serviceAccount),
-    databaseURL: "https://your-firebase-project.firebaseio.com"
+    databaseURL: process.env.FIREBASE_DATABASE_URL
   });
 } catch (error) {
   console.error("Error initializing Firebase Admin:", error);
   process.exit(1);
 }
 
-// Middleware
+const app = express();
+const port = process.env.PORT || 3000;
+
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
 // Middleware to verify admin access
 const verifyAdmin = (req, res, next) => {
   const idToken = req.headers.authorization;
   firebaseAdmin.auth().verifyIdToken(idToken)
-    .then((decodedToken) => {
+    .then(decodedToken => {
       if (decodedToken.admin === true) {
         req.user = decodedToken;
         next();
@@ -34,7 +36,7 @@ const verifyAdmin = (req, res, next) => {
         res.status(403).json({ error: 'Unauthorized access' });
       }
     })
-    .catch((error) => {
+    .catch(error => {
       console.error('Error verifying ID token:', error);
       res.status(403).json({ error: 'Unauthorized access' });
     });
@@ -56,10 +58,8 @@ app.get('/images/:imageName', async (req, res) => {
 // Route to handle order placement and send email notifications
 app.post('/place-order', async (req, res) => {
   try {
-    // Extract order details from the request body
     const { fullName, email, address, city, postalCode, cartItems } = req.body;
 
-    // Format the cart items into HTML
     const formattedCartItems = cartItems.map(item => `
       <div>
         <h3>${item.title}</h3>
@@ -73,10 +73,8 @@ app.post('/place-order', async (req, res) => {
       </div>
     `).join('');
 
-    // Calculate total price
     const totalPrice = cartItems.reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0).toFixed(2);
 
-    // Configure the email content with dynamic cart items
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
@@ -90,10 +88,6 @@ app.post('/place-order', async (req, res) => {
       `
     };
 
-    // Log the email content for debugging
-    console.log("Email content:", mailOptions.html);
-
-    // Set up transporter for nodemailer
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -102,7 +96,6 @@ app.post('/place-order', async (req, res) => {
       }
     });
 
-    // Send the email
     await transporter.sendMail(mailOptions);
     console.log('Email sent successfully');
     res.status(200).json({ message: 'Order placed and email sent successfully.' });
@@ -112,7 +105,22 @@ app.post('/place-order', async (req, res) => {
   }
 });
 
+// Endpoint for Stripe payment intent
+app.post('/create-payment-intent', async (req, res) => {
+  const { amount } = req.body;
+  try {
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: amount,
+      currency: 'eur',
+      metadata: { integration_check: 'accept_a_payment' },
+    });
+    res.json({ clientSecret: paymentIntent.client_secret });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // Start the server
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server running on port ${port}`);
 });

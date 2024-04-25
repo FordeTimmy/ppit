@@ -7,6 +7,7 @@ const CartContext = createContext({
   updateQuantity: () => {},
   removeFromCart: () => {},
   checkout: () => {},
+  clearCart: () => {},
   cartItemCount: 0
 });
 
@@ -42,9 +43,11 @@ export const CartProvider = ({ children }) => {
 
   // Function to handle checkout
   const checkout = () => {
-    // Here you would typically handle the checkout process
     console.log('Checking out', cartItems);
-    // After checkout, you might want to clear the cart
+    return cartItems; // Simply return the current cart items
+  };
+  
+  const clearCart = () => {
     setCartItems([]);
   };
 

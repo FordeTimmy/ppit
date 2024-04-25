@@ -24,3 +24,5 @@ export const db = getFirestore(app);
 // Initialize Firebase Auth and provider for Google sign-in
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
+
+

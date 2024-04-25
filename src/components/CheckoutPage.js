@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
+import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CartItem from './CartItem'; // Import the CartItem component
 import './CheckoutPage.css';
 import { collection, doc, updateDoc } from 'firebase/firestore';
@@ -13,80 +13,92 @@ const CheckoutPage = () => {
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [postalCode, setPostalCode] = useState('');
-  const [cardNumber, setCardNumber] = useState('');
-  const [expiryDate, setExpiryDate] = useState('');
-  const [cvv, setCvv] = useState('');
   const [cartItems, setCartItems] = useState([]);
-  const [stripePromise, setStripePromise] = useState(null); // Initialize stripePromise state
+  const stripe = useStripe();
+  const elements = useElements();
   const location = useLocation();
 
   useEffect(() => {
     if (location && location.state && location.state.cartItems) {
       setCartItems(location.state.cartItems);
     }
-    
+
     // Load Stripe when the component mounts
     const fetchStripe = async () => {
       const stripe = await loadStripe('pk_test_51P8hZ8ArTxCCY3JMUnK5UAFHCyRPuzBUkqB3PLpU5ddxsLcX1raWVFdsbCVDSkgSp4rDZ3Q168iJkF3HPLxYYhBs001Vsx7gOH');
-      setStripePromise(() => stripe);
+      // setStripePromise(() => stripe);
     };
-    
-    fetchStripe();
 
+    fetchStripe();
   }, [location]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    // Create an object with order details
-    const orderDetails = {
-      fullName,
-      email,
-      address,
-      city,
-      postalCode,
-      cartItems
-    };
-  
-    try {
-      // Make a POST request to the backend to place the order and send email notification
-      const response = await fetch('http://localhost:3000/place-order', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(orderDetails)
-      });
-  
-      // Check if the request was successful
-      if (response.ok) {
-        // Order placed successfully
-        console.log('Order placed successfully');
-        // Clear the form fields
-        setFullName('');
-        setEmail('');
-        setAddress('');
-        setCity('');
-        setPostalCode('');
-        setCardNumber('');
-        setExpiryDate('');
-        setCvv('');
-        // Clear the cart items
-        setCartItems([]);
-        // Show a confirmation message
-        alert('Your order has been placed. You will receive an email shortly.');
-      } else {
-        // Handle error response
-        console.error('Error placing order:', response.statusText);
+
+    if (!stripe || !elements) {
+      console.log('Stripe.js has not loaded yet.');
+      return;
+    }
+
+    const cardElement = elements.getElement(CardElement);
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
+    });
+
+    if (error) {
+      console.log('[error]', error);
+    } else {
+      console.log('[PaymentMethod]', paymentMethod);
+      alert('Payment successful!');
+      // Here you would handle form submission after successful payment.
+      // Create an object with order details
+      const orderDetails = {
+        fullName,
+        email,
+        address,
+        city,
+        postalCode,
+        cartItems
+      };
+
+      try {
+        // Make a POST request to the backend to place the order and send email notification
+        const response = await fetch('http://localhost:3000/place-order', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(orderDetails)
+        });
+
+        // Check if the request was successful
+        if (response.ok) {
+          // Order placed successfully
+          console.log('Order placed successfully');
+          // Clear the form fields
+          setFullName('');
+          setEmail('');
+          setAddress('');
+          setCity('');
+          setPostalCode('');
+          // Clear the cart items
+          setCartItems([]);
+          // Show a confirmation message
+          alert('Your order has been placed. You will receive an email shortly.');
+        } else {
+          // Handle error response
+          console.error('Error placing order:', response.statusText);
+          // Display an error message to the user
+        }
+      } catch (error) {
+        // Handle network errors
+        console.error('Error placing order:', error.message);
         // Display an error message to the user
       }
-    } catch (error) {
-      // Handle network errors
-      console.error('Error placing order:', error.message);
-      // Display an error message to the user
     }
   };
-  
+
   const updateQuantity = async (itemId, newQuantity) => {
     setCartItems(currentItems =>
       currentItems.map(item =>
@@ -126,12 +138,10 @@ const CheckoutPage = () => {
           <input type="text" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} required />
           <input type="text" placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} required />
           <input type="text" placeholder="Postal Code" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} required />
-          <input type="text" placeholder="Card Number" value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} required />
-          <input type="text" placeholder="Expiry Date" value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)} required />
-          <input type="text" placeholder="CVV" value={cvv} onChange={(e) => setCvv(e.target.value)} required />
+          <CardElement />
           <button type="submit" className="checkout-button">Place Order</button>
         </form>
-        
+
         <div className="cart-container">
           <div className="cart-summary">
             <h3>My Cart</h3>
