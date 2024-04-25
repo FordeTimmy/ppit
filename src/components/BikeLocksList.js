@@ -1,34 +1,55 @@
 // BikeLocksList.js
-import React from 'react';
-import { Link } from 'react-router-dom';
-import BikeLocksData from './BikeLocksData'; // Ensure this points to your actual data file
-import './ElectricBikeList.css';
+import React, { useState, useEffect } from 'react';
+import { db } from '../firebase';
+import { collection, query, where, getDocs } from "firebase/firestore";
+import QuickView from './QuickView';
+import { useCart } from './CartContext';
+import './ElectricBikeList.css'; // Assuming you have a CSS file for KidsBikeList
+
 
 const BikeLocksList = () => {
-  return (
-    <div>
-      <h1>Bike Locks</h1>
-      <div className="locks-container">
-        <div className="row">
-          {BikeLocksData.slice(0, 3).map(lock => (
-            <div key={lock.id} className="lock-item">
-              <Link to={`/bikelocks/${lock.id}`}>
-                <img 
-                  src={lock.image ? lock.image : '/path-to-default-image.jpg'} 
-                  alt={lock.name} 
-                  className="lock-image" 
-                />
-                <div className="lock-info">
-                  <h2>{lock.name}</h2>
-                  <p>{lock.price}</p>
-                </div>
-              </Link>
+    const [bikeLocks, setBikeLocks] = useState([]);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const { addToCart } = useCart();  // Use the addToCart from the context
+
+    useEffect(() => {
+        const fetchLocks = async () => {
+            const locksQuery = query(collection(db, "products"), where("category", "==", "Bike Locks"));
+            const querySnapshot = await getDocs(locksQuery);
+            setBikeLocks(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+        };
+
+        fetchLocks();
+    }, []);
+
+    const openQuickView = (product) => {
+        setSelectedProduct(product);
+    };
+
+    const closeQuickView = () => {
+        setSelectedProduct(null);
+    };
+
+    return (
+        <div>
+            <h2>Bike Locks</h2>
+            <div className="bike-list">
+                {bikeLocks.map(lock => (
+                    <div className="bike-item" key={lock.id}>
+                        <div className="bike-image-container">
+                            <img src={lock.productImageUrl} alt={lock.title} />
+                        </div>
+                        <h3>{lock.title}</h3>
+                        <p>€{lock.price}</p>
+                        <button className="quick-view-btn" onClick={() => openQuickView(lock)}>Quick View</button>
+                    </div>
+                ))}
             </div>
-          ))}
+            {selectedProduct && (
+                <QuickView product={selectedProduct} onClose={closeQuickView} addToCart={addToCart} />
+            )}
         </div>
-      </div>
-    </div>
-  );
-}
+    );
+};
 
 export default BikeLocksList;
