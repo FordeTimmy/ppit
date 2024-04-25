@@ -23,7 +23,6 @@ import BikeLightsDetails from './components/BikeLightsDetails';
 import BikeReflectorsList from './components/BikeReflectorsList';
 import CheckoutPage from './components/CheckoutPage';
 import Bikes from './components/Bikes';
-import SignUp from './components/SignUp';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
 import PrivacyPolicy from './components/PrivacyPolicy';
@@ -67,7 +66,6 @@ const App = () => {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/bikes" element={<Bikes />} />
-          <Route path="/signUp" element={<SignUp />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />

@@ -35,9 +35,7 @@ const Navbar = ({ isAdmin, handleLogout }) => {
               <li className="nav-item">
                 <Link to="/admin" className="nav-link">Admin Login</Link>
               </li>
-              <li className="nav-item">
-                <Link to="/SignUp" className="nav-link">Sign Up</Link>
-              </li>
+              
             </>
           )}
           <li className="nav-item">
