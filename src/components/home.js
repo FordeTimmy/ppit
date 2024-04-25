@@ -16,10 +16,7 @@ const Home = () => {
     <div className="home-page-container">
       <Navbar /> {/* Include the Navbar component */}
 
-      <div className="fake-sales-banner left-banner">
-  <img src={SaleImage} alt="Sale Icon" />
-  <span>Sale: Get up to 50% off!</span>
-</div>
+   
 
      
       <div className="product-list">
@@ -45,11 +42,8 @@ const Home = () => {
         />
         {/* You can continue adding more ProductItem components here for additional bike categories */}
       </div>
-      <div className="fake-sales-banner right-banner">
-  <span>Don't miss out! Huge discount on selected items!</span>
-  <img src={DiscountImage} alt="Discount Icon" />
+    
 </div>
-    </div>
   );
 }
 
