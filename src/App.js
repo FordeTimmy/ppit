@@ -17,7 +17,7 @@ import WomensBikeList from './components/WomensBikeList';
 import WomensBikeDetails from './components/WomensBikeDetails';
 import Footer from './components/Footer';
 import BikeLocksList from './components/BikeLocksList';
-import BikeLocksDetails from './components/BikeLocksDetails';
+// import BikeLocksDetails from './components/BikeLocksDetails';
 import BikeLightsList from './components/BikeLightsList';
 import BikeLightsDetails from './components/BikeLightsDetails';
 import BikeReflectorsList from './components/BikeReflectorsList';
@@ -59,7 +59,7 @@ const App = () => {
           <Route path="/bikelights" element={<BikeLightsList />} />
           <Route path="/bikelights/:id" element={<BikeLightsDetails />} />
           <Route path="/bikelocks" element={<BikeLocksList />} />
-          <Route path="/bikelocks/:id" element={<BikeLocksDetails />} />
+          {/* <Route path="/bikelocks/:id" element={<BikeLocksDetails />} /> */}
           <Route path="/bikereflectors" element={<BikeReflectorsList />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />

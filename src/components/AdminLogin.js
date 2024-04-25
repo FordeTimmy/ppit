@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import BikeLogo from '../images/BikeLogo.png';
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase';
-import './adminLogin.css';
+import './AdminLogin.css';
 
 function AdminLogin({ handleAdminLogin }) { // Pass handleAdminLogin as a prop
   const [email, setEmail] = useState('');
