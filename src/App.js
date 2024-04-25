@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate,} from 'react-router-dom';
 import { CartProvider } from './components/CartContext';
 import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
@@ -32,14 +32,17 @@ const App = () => {
 
   const handleAdminLogin = (adminStatus) => {
     console.log("Admin status:", adminStatus);
-    setIsAdmin(adminStatus);
-    console.log("isAdmin state updated:", isAdmin);
+    setIsAdmin(adminStatus); // This will trigger a re-render
   };
   
   const handleLogout = () => {
-    setIsAdmin(false);
+    setIsAdmin(false); // This will also trigger a re-render
   };
 
+  useEffect(() => {
+    // This will log the updated state after it has been set
+    console.log("isAdmin state updated:", isAdmin);
+  }, [isAdmin]); // Adding isAdmin as a dependency so the effect runs on its change
   return (
     <CartProvider>
       <Router>
