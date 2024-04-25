@@ -12,7 +12,7 @@ import BikeDetails from './components/BikeDetails';
 import KidsBikeList from './components/KidsBikeList';
 import KidsBikeDetails from './components/KidsBikeDetails';
 import MountainBikeList from './components/MountainBikeList';
-import MountainBikeDetails from './components/MountainBikeDetails';
+// import MountainBikeDetails from './components/MountainBikeDetails';
 import WomensBikeList from './components/WomensBikeList';
 import WomensBikeDetails from './components/WomensBikeDetails';
 import Footer from './components/Footer';
@@ -53,7 +53,7 @@ const App = () => {
           <Route path="/kidsbikes/:id" element={<KidsBikeDetails />} />
           <Route path="/accessories" element={<Accessories />} />
           <Route path="/mountainbikes" element={<MountainBikeList />} />
-          <Route path="/mountainbikes/:id" element={<MountainBikeDetails />} />
+          {/* <Route path="/mountainbikes/:id" element={<MountainBikeDetails />} /> */}
           <Route path="/womensbikes" element={<WomensBikeList />} />
           <Route path="/womensbikes/:id" element={<WomensBikeDetails />} />
           <Route path="/bikelights" element={<BikeLightsList />} />
