@@ -42,40 +42,39 @@ const App = () => {
   };
 
   return (
-    <CartProvider>
-      <Router>
-        <Navbar isAdmin={isAdmin} handleLogout={handleLogout} />
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/admin" element={<AdminLogin handleAdminLogin={handleAdminLogin} />} />
-          <Route path="/admin-dashboard" element={isAdmin ? <AdminDashboard isAdmin={isAdmin} /> : <Navigate to="/home" />} />
-          <Route path="/electricbikes" element={<ElectricBikeList />} />
-          <Route path="/electricbikes/:id" element={<BikeDetails />} />
-          <Route path="/kidsbikes" element={<KidsBikeList />} />
-          <Route path="/kidsbikes/:id" element={<KidsBikeDetails />} />
-          <Route path="/accessories" element={<Accessories />} />
-          <Route path="/mountainbikes" element={<MountainBikeList />} />
-          {/* <Route path="/mountainbikes/:id" element={<MountainBikeDetails />} /> */}
-          <Route path="/womensbikes" element={<WomensBikeList />} />
-          <Route path="/womensbikes/:id" element={<WomensBikeDetails />} />
-          <Route path="/bikelights" element={<BikeLightsList />} />
-          <Route path="/bikelights/:id" element={<BikeLightsDetails />} />
-          <Route path="/bikelocks" element={<BikeLocksList />} />
-          {/* <Route path="/bikelocks/:id" element={<BikeLocksDetails />} /> */}
-          <Route path="/bikereflectors" element={<BikeReflectorsList />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/bikes" element={<Bikes />} />
-          <Route path="/signUp" element={<SignUp />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<ContactUs />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-         
-        </Routes>
-        <Footer />
-      </Router>
-    </CartProvider>
+    <Elements stripe={stripePromise}>
+      <CartProvider>
+        <Router>
+          <Navbar isAdmin={isAdmin} handleLogout={handleLogout} />
+          <Routes>
+            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/admin" element={<AdminLogin handleAdminLogin={handleAdminLogin} />} />
+            <Route path="/admin-dashboard" element={isAdmin ? <AdminDashboard isAdmin={isAdmin} /> : <Navigate to="/home" />} />
+            <Route path="/electricbikes" element={<ElectricBikeList />} />
+            <Route path="/electricbikes/:id" element={<BikeDetails />} />
+            <Route path="/kidsbikes" element={<KidsBikeList />} />
+            <Route path="/kidsbikes/:id" element={<KidsBikeDetails />} />
+            <Route path="/accessories" element={<Accessories />} />
+            <Route path="/mountainbikes" element={<MountainBikeList />} />
+            <Route path="/womensbikes" element={<WomensBikeList />} />
+            <Route path="/womensbikes/:id" element={<WomensBikeDetails />} />
+            <Route path="/bikelights" element={<BikeLightsList />} />
+            <Route path="/bikelights/:id" element={<BikeLightsDetails />} />
+            <Route path="/bikelocks" element={<BikeLocksList />} />
+            <Route path="/bikereflectors" element={<BikeReflectorsList />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/bikes" element={<Bikes />} />
+          
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </CartProvider>
+    </Elements>
   );
 };
 
