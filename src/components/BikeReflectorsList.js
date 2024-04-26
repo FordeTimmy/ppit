@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { db } from '../firebase'; // Make sure this points to your firebase config file
+import { db } from '../firebase'; //firebase
 import { collection, getDocs } from "firebase/firestore";
 import { Link } from 'react-router-dom';
 import './ElectricBikeList.css'; // Reusing ElectricBikeList CSS for styling
