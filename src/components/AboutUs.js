@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';  // Ensure you have CSS styles for about us page
+import './styles.css'; 
 
 const AboutUs = () => {
   return (

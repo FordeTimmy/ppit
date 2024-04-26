@@ -30,7 +30,7 @@ body, html {
   overflow: hidden;
 }
 
-/* Styles for product list, will include scroll if content exceeds its max-height */
+/* Styles for product list,*/
 .products-section {
   flex-basis: calc(50% - 1rem); /* Adjust width to account for gap */
   max-height: calc(100vh - 120px - 2rem); /* Adjust for header/footer */
@@ -105,4 +105,3 @@ body, html {
   width: 100%;
 }
 
-/* Other existing styles */
