@@ -68,8 +68,6 @@ app.post('/place-order', async (req, res) => {
         <p>Description: ${item.description}</p>
         <p>Quantity: ${item.quantity}</p>
         <p>Price: €${item.price}</p>
-        <p>Date: ${item.date}</p>
-        <p>Time: ${item.time}</p>
       </div>
     `).join('');
 
