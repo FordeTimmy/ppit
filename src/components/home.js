@@ -4,7 +4,7 @@ import './styles.css';
 
 // Import images
 import kidsBikeImage from '../images/Kids-bike.jpg';
-import womensBikeImage from '../images/WomensBike.jpg'; // Import the Women's Bike image
+import womensBikeImage from '../images/WomensBike.jpg';
 import SaleImage from '../images/Sale.png';
 import DiscountImage from '../images/Discount.png';
 import bikeLightsImage from '../images/BikeLights.jpg';
@@ -14,7 +14,7 @@ import Navbar from './Navbar';
 const Home = () => {
   return (
     <div className="home-page-container">
-      <Navbar /> {/* Include the Navbar component */}
+      <Navbar /> 
 
    
 
@@ -40,7 +40,7 @@ const Home = () => {
           imageUrl={womensBikeImage}
           linkUrl="/Womensbikes" // Link to the Womensbikes page
         />
-        {/* You can continue adding more ProductItem components here for additional bike categories */}
+     
       </div>
     
 </div>

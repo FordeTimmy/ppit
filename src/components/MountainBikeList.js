@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import QuickView from './QuickView';
-import './ElectricBikeList.css'; // Ensure this is the CSS that styles your components consistently
+import './ElectricBikeList.css'; 
 import { useCart } from './CartContext';
 
 const MountainBikeList = () => {

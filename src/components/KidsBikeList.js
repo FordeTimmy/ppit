@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, query, where, getDocs } from "firebase/firestore";
 import QuickView from './QuickView';
-import './ElectricBikeList.css'; // Assuming you have a CSS file for KidsBikeList
+import './ElectricBikeList.css';
 import './Footer.css';
 import './styles.css';
 import { useCart } from './CartContext'; // Import useCart hook
@@ -11,7 +11,7 @@ import { useCart } from './CartContext'; // Import useCart hook
 const KidsBikeList = () => {
     const [kidsBikes, setKidsBikes] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
-    const { addToCart } = useCart();  // Use the addToCart from the context
+    const { addToCart } = useCart(); 
 
     useEffect(() => {
         const fetchBikes = async () => {

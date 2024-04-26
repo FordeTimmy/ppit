@@ -26,7 +26,7 @@ const CheckoutPage = () => {
     // Load Stripe when the component mounts
     const fetchStripe = async () => {
       const stripe = await loadStripe('pk_test_51P8hZ8ArTxCCY3JMUnK5UAFHCyRPuzBUkqB3PLpU5ddxsLcX1raWVFdsbCVDSkgSp4rDZ3Q168iJkF3HPLxYYhBs001Vsx7gOH');
-      // setStripePromise(() => stripe);
+   
     };
 
     fetchStripe();
@@ -51,7 +51,7 @@ const CheckoutPage = () => {
     } else {
       console.log('[PaymentMethod]', paymentMethod);
       alert('Payment successful!');
-      // Here you would handle form submission after successful payment.
+
       // Create an object with order details
       const orderDetails = {
         fullName,

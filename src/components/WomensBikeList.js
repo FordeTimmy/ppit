@@ -1,6 +1,6 @@
 // WomensBikeList.js
 import React, { useState, useEffect } from 'react';
-import { db } from '../firebase'; // Ensure this points to your firebase config file
+import { db } from '../firebase'; 
 import { collection, query, where, getDocs } from "firebase/firestore";
 import QuickView from './QuickView';
 import { useCart } from './CartContext';

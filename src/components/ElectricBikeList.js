@@ -4,8 +4,8 @@ import { db } from '../firebase';
 import { collection, query, where, getDocs } from "firebase/firestore";
 import QuickView from './QuickView';
 import { useCart } from './CartContext';
-import './ElectricBikeList.css'; // Assuming you have a CSS file for KidsBikeLis
-import './styles.css'; // Assuming you have a CSS file for KidsBikeList
+import './ElectricBikeList.css'; 
+import './styles.css';
 
 
 const ElectricBikesList = () => {
