@@ -4,7 +4,7 @@ import { db } from '../firebase';
 import { collection, query, where, getDocs } from "firebase/firestore";
 import QuickView from './QuickView'; // Import QuickView component
 import { useCart } from './CartContext';
-import './ElectricBikeList'; // Assuming you have a CSS file for BikeLightsList
+import './ElectricBikeList';
 
 const BikeLightsList = () => {
     const [bikeLights, setBikeLights] = useState([]);

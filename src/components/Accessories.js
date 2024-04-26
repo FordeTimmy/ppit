@@ -29,7 +29,7 @@ const Accessories = () => {
           imageUrl={bikeReflectorsImage}
           linkUrl="/bikereflectors" // Link to the Bike Reflectors page
         />
-        {/* You can continue adding more ProductItem components here for additional accessory categories */}
+      
       </div>
     </div>
   );
