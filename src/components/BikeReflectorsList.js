@@ -1,4 +1,3 @@
-// BikeReflectorsList.js
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase'; // Make sure this points to your firebase config file
 import { collection, getDocs } from "firebase/firestore";
@@ -10,9 +9,11 @@ const BikeReflectorsList = () => {
 
   useEffect(() => {
     const fetchReflectors = async () => {
-      const reflectorsQuery = collection(db, "bikereflectors");
+      const reflectorsQuery = collection(db, "products");
       const querySnapshot = await getDocs(reflectorsQuery);
-      setBikeReflectors(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+      const reflectorsData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }))
+                            .filter(product => product.category === 'Reflectors');
+      setBikeReflectors(reflectorsData);
     };
 
     fetchReflectors();
@@ -20,26 +21,28 @@ const BikeReflectorsList = () => {
 
   return (
     <div className='home-page-container'>
+    <div className='product-list'>
       <h1>Bike Reflectors</h1>
-      <div className="reflectors-container">
-        <div className="row">
-          {bikeReflectors.slice(0, 3).map(reflector => (
-            <div key={reflector.id} className="reflector-item">
-              <Link to={`/bikereflectors/${reflector.id}`}>
+      <div className="bike-list">
+        {bikeReflectors.map(reflector => (
+          <div key={reflector.id} className="product-item">
+            <Link to={`/bikereflectors/${reflector.id}`}>
+              <div className="product-image-container">
                 <img 
                   src={reflector.productImageUrl ? reflector.productImageUrl : '/path-to-default-image.jpg'} 
                   alt={reflector.title} 
-                  className="reflector-image" 
+                  className="product-image" 
                 />
-                <div className="reflector-info">
-                  <h2>{reflector.title}</h2>
-                  <p>€{reflector.price}</p>
-                </div>
-              </Link>
-            </div>
-          ))}
-        </div>
+              </div>
+              <div className="product-info">
+                <h3>{reflector.title}</h3>
+                <p>€{reflector.price}</p>
+              </div>
+            </Link>
+          </div>
+        ))}
       </div>
+    </div>
     </div>
   );
 }
